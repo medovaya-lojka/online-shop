@@ -1,0 +1,60 @@
+body {
+    font-family: Myfont, sans-serif;
+}
+
+.main-header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    max-height: 50px;
+    line-height: 50px;
+    border-bottom: 1px rgb(226, 224, 224) solid;
+    left: 0;
+    right: 0;
+}
+
+.main-header_menu {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 24px;
+    line-height: 25px;
+    flex-grow: 2;
+    font-size: 12px;
+}
+
+.main-header_menu div {
+    margin-left: 6px;
+    margin-right: 6px;
+    min-width: max-content;
+}
+
+.main-header_menu .icon {
+    text-align: center;
+    font-size: 24px;
+    padding-top: 2px;
+}
+
+.main-header_sections {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 24px;
+}
+
+.main-header_sections a {
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.icon {
+    font-family: Myfont;
+}
+
+
+@font-face {
+    font-family: Myfont;
+    src: url("fonts/font.woff") format("woff")
+}
