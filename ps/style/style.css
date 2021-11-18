@@ -1,6 +1,6 @@
 body {
     font-family: Myfont-bold, sans-serif;
-    background-color: rgb(145, 92, 205);
+    background-color: rgb(248, 243, 253);
     height: 3000px;
 }
 
@@ -15,7 +15,13 @@ body {
     border-bottom: 1px rgb(226, 224, 224) solid;
     left: 0;
     right: 0;
+    z-index: 5;
 }
+
+.main-header_logo {
+    width: 300px;
+}
+
 
 .main-header_menu {
     width: 100%;
@@ -100,6 +106,73 @@ body {
 
 .icon {
     font-family: Icons;
+}
+
+.content{
+    margin-top: 200px;
+
+}
+
+.content-bestseller {
+   text-align: center;
+}
+
+.content-bestseller_container_imgs {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    min-height: inherit
+}
+
+.content-bestseller_container_imgs_img1, .content-bestseller_container_imgs_img2  {
+    width: 30%;
+}
+
+.content-bestseller_container_imgs_img1 img, .content-bestseller_container_imgs_img2 img{
+    width: 100%;
+}
+
+.content-bestseller_container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    
+}
+
+.content-bestseller_container_text {
+    position: absolute;
+    text-align: center;
+    width: 59%;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(248,248,249,0) 0%, rgba(255,255,255,0) 6%, rgba(0,0,0,0.8130602582830007) 100%);
+    margin-bottom: 3px;
+}
+
+.content-bestseller_container_text-hit {
+    padding: 12px 12px 0px;
+    color: rgb(250, 250, 250);
+}
+
+.content-bestseller_container_text-button {
+	box-shadow:inset 0px 1px 0px -50px #ffffff;
+	background-color:#ffffff;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#494747;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:13px 55px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+    margin-bottom: 30px;
+}
+.content-bestseller_container_text-button:hover {
+	background-color:#f6f6f6;
+}
+.content-bestseller_container_text-button:active {
+	position:relative;
+	top:1px;
 }
 
 
