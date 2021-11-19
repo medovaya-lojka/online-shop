@@ -1,6 +1,6 @@
 body {
     font-family: Myfont-bold, sans-serif;
-    background-color: rgb(248, 243, 253);
+    background-color: rgb(255, 255, 255);
     height: 3000px;
 }
 
@@ -70,6 +70,8 @@ body {
     justify-content: center;
     display: none;
     min-height: 188px;
+    border-top: 1px rgb(226, 224, 224) solid;
+    border-bottom: 1px rgb(226, 224, 224) solid;
 }
 
 .main-header_dropdown a {
