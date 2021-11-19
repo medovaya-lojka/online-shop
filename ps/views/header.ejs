@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="style/style.css">
+<div class="main-header">
+    <img class="main-header_logo" src="pictures/logo.png">
+    <div class="main-header_sections">
+        <div class="main-header_sections-she">
+            <span class="main-header_sections-she_text">Женское</span>
+            <div class="main-header_dropdown">
+                <div>
+                    <a class="main-header_dropdown-category">Одежда</a>
+                    <a class="main-header_dropdown-item">Пальто</a>
+                    <a class="main-header_dropdown-item">Куртки</a>
+                    <a class="main-header_dropdown-item">Жилеты</a>
+                    <a class="main-header_dropdown-item">Комбинезоны</a>
+                </div>
+                <div>
+                    <a class="main-header_dropdown-category">Аксессуары</a>
+                    <a class="main-header_dropdown-item">Головные уборы</a>
+                    <a class="main-header_dropdown-item">Шарфы и перчатки</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-header_sections-he">
+            <span class="main-header_sections-he_text">Мужское</span>
+            <div class="main-header_dropdown">
+                <div>
+                    <a class="main-header_dropdown-category">Одежда</a>
+                    <a class="main-header_dropdown-item">Жилеты</a>
+                    <a class="main-header_dropdown-item">Пальто</a>
+                    <a class="main-header_dropdown-item">Куртки</a>
+                </div>
+                <div>
+                    <a class="main-header_dropdown-category">Аксессуары</a>
+                    <a class="main-header_dropdown-item">Шарфы и перчатки</a>
+                    <a class="main-header_dropdown-item">Головные уборы</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-header_menu">
+        <div>
+            <div class="icon"></div>
+            <div>Поиск</div>
+        </div>
+        <div>
+            <div class="icon"></div>
+            <div>Войти</div>
+        </div>
+        <div>
+            <div class="icon"></div>
+            <div>Избранное</div>
+        </div>
+        <div>
+            <div class="icon"></div>
+            <div>Корзина</div>
+        </div>
+        <div>
+            <div class="icon"></div>
+            <div>Поддержка</div>
+        </div>
+    </div>
+</div>
+<script>
+    fetch('/test-api')
+        .then(response => response.json())
+        .then(data => console.log(data));
+</script>
