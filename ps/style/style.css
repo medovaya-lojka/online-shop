@@ -144,7 +144,7 @@ body {
     text-align: center;
     width: 100%;
     background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(248,248,249,0) 0%, rgba(255,255,255,0) 6%, rgba(0,0,0,0.8130602582830007) 100%);
-    margin-bottom: 3px;
+    /* margin-bottom: 3px; */
 }
 
 .content-bestseller_container_text-hit {

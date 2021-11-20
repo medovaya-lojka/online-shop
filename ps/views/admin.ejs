@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="style/admin.css">
+<script src="script/admin.js"></script>
+<div class="main-header">
+    <img class="main-header_logo" src="pictures/logo.png">
+</div>
+<div class="admin-form">
+    <h2>Добавление товара</h2>
+    <div class="admin-form_pass">
+        <input placeholder="Пароль для подтверждения" type="password">
+    </div>
+    <div class="admin-position">
+        <input placeholder="Наименование товара" class="name" type="text">
+        <div class="header-label">Выберите раздел и категорию товара</div>
+        <select>
+            <option value="1">Мужская</option>
+        </select>
+        <select>
+            <option>Куртки</option>
+        </select>
+        <div class="size">
+            <div></div>
+        </div>
+        <textarea placeholder="Описание товара" class="description"></textarea>
+        <div class="header-label">Добавьте изображения товара</div>
+        <div class="image-container">
+            <div class="add-button" id="addButton"></div>
+        </div>
+    
+    </div>
+</div>
+<div class="modal-container">
+    <div class="modal">
+        <div class="cross-button"></div>
+        <div class="text-modal">Добавьте ссылку на изображение</div>
+        <textarea placeholder="URL изображения" class="modal-description"></textarea>
+    </div>
+    
+</div>

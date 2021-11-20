@@ -22,3 +22,7 @@ app.post('/setPosition', (req, res) => {
     db.push('positions', req.body);
     res.send({success: true});
 })
+
+app.get('/admin', (req, res) => {
+    res.render('admin');
+})

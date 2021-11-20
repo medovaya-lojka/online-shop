@@ -1,0 +1,150 @@
+body {
+    font-family: Myfont-Light, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 1.5rem;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.main-header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    max-height: 60px;
+    line-height: 60px;
+    border-bottom: 1px rgb(226, 224, 224) solid;
+    left: 0;
+    right: 0;
+    z-index: 5;
+}
+
+.main-header_logo {
+    width: 300px;
+}
+
+h2 {
+    text-align: center;
+    
+}
+
+.admin-form {
+    font-family: Myfont-Light, sans-serif;
+    width: 60%;
+    margin: auto;
+    padding: 20px;
+   
+
+}
+
+.admin-form input, .admin-form textarea, .admin-form select, .modal-description {
+    border: 0;
+    border-bottom: 1px rgb(156, 156, 156) solid;
+    margin-top: 12px;
+    padding: 6px;
+    font-family: Myfont-Light, sans-serif;
+}
+
+.admin-form input:focus, .admin-form textarea:focus, .admin-form select:focus, .modal-description:focus {
+    border: 0;
+    border-bottom: 1px rgb(85, 80, 80) solid;
+    outline: none;
+}
+
+.admin-form select{
+    width: 30%;
+    
+}
+
+.header-label {
+    padding: 10px 6px;
+    margin-top: 12px;
+    font-size: 18px;
+}
+
+.admin-form input, .admin-form textarea {
+    width: 100%;
+}
+
+.add-button {
+    font-family: Icons;
+    height: 50px;
+    width: 50px;
+    border: 1px gray solid;
+    border-radius: 5px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 24px;
+    background-color: rgba(146, 137, 137, 0.137);
+    margin-top: 12px;
+    cursor: pointer;
+    /* display: none; */
+}
+
+.add-button:hover {
+    background-color: rgba(85, 80, 80, 0.137);
+}
+
+.modal-container {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.877);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100wh;
+    /* display: none; */
+}
+
+.cross-button {
+    font-family: Icons;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.text-modal {
+    padding: 10px 0px;
+    margin-top: 12px;
+    font-size: 18px;
+}
+
+.modal {
+    position: absolute;
+    width: 30%;
+    border: 1px rgb(156, 156, 156) solid;
+    border-radius: 5px;
+    padding: 0 40px 40px 40px;
+    background-color: rgb(255, 255, 255);
+}
+
+.modal-description {
+    width: 100%;
+    resize: none;
+}
+
+@font-face {
+    font-family: Icons;
+    src: url("fonts/font.woff") format("woff")
+}
+
+@font-face {
+    font-family: Myfont-Light;
+    src: url("fonts/Myfont-light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: Myfont-Bold;
+    src: url("fonts/Myfont-bold.woff2") format("woff2");
+}
