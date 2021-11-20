@@ -17,13 +17,17 @@ class Database {
         }
     }
 
-    async push(content) {
-        this.db.data.posts.push(content);
+    async push(target, content) {
+        if(this.db.data[target]) {
+            this.db.data[target].push(content);
+        } else {
+            this.db.data[target] = [content];
+        }
         await this.db.write();
     }
 
-    async getData() {
-        console.log(this.db.data);
+    async getData(target) {
+        return this.db.data[target];
     }
 }
 

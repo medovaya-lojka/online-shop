@@ -6,11 +6,13 @@
     "express": "^4.17.1",
     "lowdb": "^3.0.0",
     "nodemon": "^2.0.15",
-    "simple-local-db": "^1.0.1"
   },
   "type": "module",
   "nodemonConfig": {
     "ignore": ["server/db.json"]
+  },
+  "scripts": {
+    "dev" : "nodemon server/server.mjs"
   },
   "devDependencies": {
     "cors": "^2.8.5"
