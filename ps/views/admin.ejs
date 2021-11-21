@@ -4,35 +4,43 @@
     <img class="main-header_logo" src="pictures/logo.png">
 </div>
 <div class="admin-form">
-    <h2>Добавление товара</h2>
+    <h2>Создание позиции</h2>
     <div class="admin-form_pass">
-        <input placeholder="Пароль для подтверждения" type="password">
+        <input placeholder="Пароль для подтверждения" type="password" id="adminPass">
     </div>
     <div class="admin-position">
-        <input placeholder="Наименование товара" class="name" type="text">
+        <input placeholder="Наименование товара" class="name" type="text" id="name">
         <div class="header-label">Выберите раздел и категорию товара</div>
-        <select>
+        <select id="section">
             <option value="1">Мужская</option>
         </select>
-        <select>
-            <option>Куртки</option>
+        <select id="category">
+            <option value="1">Куртки</option>
         </select>
         <div class="size">
             <div></div>
         </div>
-        <textarea placeholder="Описание товара" class="description"></textarea>
+        <textarea placeholder="Описание товара" class="description" id="description"></textarea>
         <div class="header-label">Добавьте изображения товара</div>
-        <div class="image-container">
-            <div class="add-button" id="addButton"></div>
+        <div class="image-container" id="imageContainer">
+            <div class="add-button" id="addButton" onclick="openModal(this)"></div>
         </div>
-    
+    </div>
+    <div class="submit-container">
+        <div class="submit-button" onclick="sendData()">
+            Добавить на сайт
+        </div>
     </div>
 </div>
-<div class="modal-container">
-    <div class="modal">
-        <div class="cross-button"></div>
+<div class="modal-container" id="modalContainer" onmousedown="closeModal()">
+    <div class="modal" id="modal">
+        <div class="cross-button" onclick="closeModal()"></div>
         <div class="text-modal">Добавьте ссылку на изображение</div>
-        <textarea placeholder="URL изображения" class="modal-description"></textarea>
-    </div>
-    
+        <input placeholder="URL изображения" class="modal-description" id="picURL"></input>
+        <div class="modal-container-add-button">
+            <div class="modal-add-button" onclick="modalConfirm()">
+                Ок
+            </div>
+        </div>
+    </div>  
 </div>

@@ -60,25 +60,3 @@
         </div>
     </div>
 </div>
-<script>
-    async function set(url, params) {
-        const rawResponse = await fetch(url, {
-            method: "POST",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(params)
-        });
-
-        return await rawResponse.json();
-    }
-
-    set('/setPosition', {name: "куртка теплая"}).then((data) => {
-        fetch('/getPositionsList')
-            .then(response => response.json())
-            .then(data => console.log(data));
-    });
-
-
-</script>

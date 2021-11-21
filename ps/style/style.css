@@ -153,18 +153,18 @@ body {
 }
 
 .content-bestseller_container_text-button {
-	box-shadow:inset 0px 1px 0px -50px #ffffff;
-	background-color:#ffffff;
-	border:1px solid #dcdcdc;
-	display:inline-block;
-	cursor:pointer;
-	color:#494747;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:13px 55px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffffff;
+	box-shadow: inset 0px 1px 0px -50px #ffffff;
+	background-color: #ffffff;
+	border: 1px solid #dcdcdc;
+	display: inline-block;
+	cursor: pointer;
+	color: #494747;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 13px 55px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffffff;
     margin-bottom: 30px;
 }
 .content-bestseller_container_text-button:hover {

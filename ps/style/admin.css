@@ -71,23 +71,49 @@ h2 {
     width: 100%;
 }
 
+.image-container {
+    display: flex;
+}
+
 .add-button {
     font-family: Icons;
     height: 50px;
     width: 50px;
     border: 1px gray solid;
-    border-radius: 5px;
     line-height: 50px;
     text-align: center;
     font-size: 24px;
     background-color: rgba(146, 137, 137, 0.137);
     margin-top: 12px;
     cursor: pointer;
-    /* display: none; */
+    display: none;
+    margin-left: 12px;
+    background-size: cover;
+    background-position: center;
 }
 
 .add-button:hover {
     background-color: rgba(85, 80, 80, 0.137);
+}
+
+.submit-container {
+    display: flex;
+    justify-content: center;
+}
+
+.submit-button {
+    width: 25%;
+    color: rgb(255, 255, 255);
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px 10px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color:#000000;
+}
+
+.submit-button:hover {
+    background-color: rgb(56, 56, 56);
 }
 
 .modal-container {
@@ -98,12 +124,12 @@ h2 {
     right: 0;
     bottom: 0;
     z-index: 10;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100wh;
-    /* display: none; */
+    font-family: Myfont-Light, sans-serif;
 }
 
 .cross-button {
@@ -112,6 +138,10 @@ h2 {
     right: 10px;
     top: 10px;
     cursor: pointer;
+}
+
+.cross-button:hover {
+    font-weight: 700;
 }
 
 .text-modal {
@@ -124,7 +154,6 @@ h2 {
     position: absolute;
     width: 30%;
     border: 1px rgb(156, 156, 156) solid;
-    border-radius: 5px;
     padding: 0 40px 40px 40px;
     background-color: rgb(255, 255, 255);
 }
@@ -132,6 +161,27 @@ h2 {
 .modal-description {
     width: 100%;
     resize: none;
+}
+
+.modal-container-add-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-add-button {
+    width: 15%;
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px 10px;
+    font-size: 16px;
+    border: 1px rgb(119, 119, 119) solid;
+    cursor: pointer;
+    color:#ffffff;
+    background-color:#000000;
+}
+
+.modal-add-button:hover {
+    background-color: rgb(56, 56, 56);
 }
 
 @font-face {
