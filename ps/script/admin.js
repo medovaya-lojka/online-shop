@@ -2,6 +2,7 @@ let buttonCounter = 0;
 let currentModalId;
 const imageList = [];
 const MAX_IMAGE_COUNT = 2;
+let categoryList;
 
 const closeModal = () => {
     document.getElementById("modalContainer").style.display = "none";
@@ -41,7 +42,8 @@ window.addEventListener("load", () => {
     copyAddButton();
     document.getElementById("modal").addEventListener("mousedown", (e) => {
         e.stopPropagation();
-    })
+    });
+    updateCategorySelect();
 })
 
 const sendData = () => {
@@ -73,3 +75,29 @@ async function set(url, params) {
     return await rawResponse.json();
 }
 
+const updateCategorySelect = () => {
+    if (!categoryList) {
+        fetch('/getCategoryList')
+            .then(response => response.json())
+            .then((data) => {
+                categoryList = data;
+                updateCategorySelect();
+            });
+    } else {
+        let categorySelect = document.getElementById("category");
+        categorySelect.innerHTML = "";
+        let curSection = document.getElementById("section").value;
+        categoryList[curSection]["Одежда"].forEach((el, index) => {
+            let option = document.createElement("option");
+            option.value = index;
+            option.innerHTML = el;
+            categorySelect.appendChild(option);
+        });
+        categoryList[curSection]["Аксессуары"].forEach((el, index) => {
+            let option = document.createElement("option");
+            option.value = index;
+            option.innerHTML = el;
+            categorySelect.appendChild(option);
+        });
+    }
+}

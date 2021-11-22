@@ -11,8 +11,9 @@
     <div class="admin-position">
         <input placeholder="Наименование товара" class="name" type="text" id="name">
         <div class="header-label">Выберите раздел и категорию товара</div>
-        <select id="section">
-            <option value="1">Мужская</option>
+        <select id="section" onchange="updateCategorySelect()">
+            <option value="1">Женская</option>
+            <option value="2">Мужская</option>
         </select>
         <select id="category">
             <option value="1">Куртки</option>
