@@ -18,6 +18,10 @@ app.get('/getPositionsList', async (req, res) => {
     res.send(await db.getData('positions'));
 })
 
+app.get('/getCategoryList', async (req, res) => {
+    res.send(await db.getData('categories'));
+})
+
 app.post('/setPosition', (req, res) => {
     db.push('positions', req.body);
     res.send({success: true});
