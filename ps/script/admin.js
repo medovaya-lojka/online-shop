@@ -44,7 +44,22 @@ window.addEventListener("load", () => {
         e.stopPropagation();
     });
     updateCategorySelect();
+    washIconsFill();
 })
+
+const washIconsFill = () => {
+    for (let i = 1; i <= 34; i++) {
+        const imageButton = document.getElementById("iconWash").cloneNode(true);
+        imageButton.innerHTML = '';
+        const newImg = document.createElement("img");
+        newImg.src = `/pictures/washSymbols/${i}@2x.png`;
+        imageButton.id = "iconWash" + i;
+        imageButton.style.display = "block";
+        imageButton.appendChild(newImg);
+        document.getElementById("imageContainerWash").appendChild(imageButton);
+    }
+
+}
 
 const sendData = () => {
     const positionData = {
