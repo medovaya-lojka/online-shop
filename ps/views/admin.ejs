@@ -1,7 +1,9 @@
 <link rel="stylesheet" href="style/admin.css">
 <script src="script/admin.js"></script>
 <div class="main-header">
-    <img class="main-header_logo" src="pictures/logo.png">
+    <a href="/">
+        <img class="main-header_logo" src="pictures/logo.png">
+    </a>
 </div>
 <div class="admin-form">
     <h2>Создание позиции</h2>
@@ -22,6 +24,11 @@
             <div></div>
         </div>
         <textarea placeholder="Описание товара" class="description" id="description"></textarea>
+        <input placeholder="Состав" class="composition" type="text" id="composition">
+        <div class="header-label">Выберите соотвествующие символы по уходу</div>
+        <div class="image-container" id="imageContainer">
+            <div class="add-button" id="addButton" onclick="openModal(this)"></div>
+        </div>
         <div class="header-label">Добавьте изображения товара</div>
         <div class="image-container" id="imageContainer">
             <div class="add-button" id="addButton" onclick="openModal(this)"></div>
