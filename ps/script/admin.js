@@ -1,17 +1,23 @@
 let buttonCounter = 0;
 let currentModalId;
-const imageList = [];
+let imageList = [];
 const MAX_IMAGE_COUNT = 2;
 let categoryList;
+const washSymbolsList = [];
 
-const closeModal = () => {
-    document.getElementById("modalContainer").style.display = "none";
+const closeModal = (id, shouldClean) => {
+    document.getElementById(id).style.display = "none";
+    if (shouldClean) {
+        cleanForm();
+    }
 }
 
-const openModal = (e) => {
-    document.getElementById("modalContainer").style.display = "flex";
-    console.log(e);
-    currentModalId = e.id;
+const openModal = (e, id) => {
+    document.getElementById(id).style.display = "flex";
+    if (e) {
+        currentModalId = e.id;
+    }
+
 }
 
 const copyAddButton = () => {
@@ -54,27 +60,89 @@ const washIconsFill = () => {
         const newImg = document.createElement("img");
         newImg.src = `/pictures/washSymbols/${i}@2x.png`;
         imageButton.id = "iconWash" + i;
-        imageButton.style.display = "block";
+        imageButton.value = i
+        imageButton.style.display = "flex";
         imageButton.appendChild(newImg);
         document.getElementById("imageContainerWash").appendChild(imageButton);
+        washSymbolsList[i] = false;
     }
 
 }
 
-const sendData = () => {
-    const positionData = {
-        name: document.getElementById("name").value,
-        section: document.getElementById("section").value,
-        category: document.getElementById("category").value,
-        description: document.getElementById("description").value,
-        imageList: imageList,
-        adminPass: document.getElementById("adminPass").value
+const iconWashPick = (element) => {
+    let i = element.value;
+    if (element.classList.contains('iconWashActive')) {
+        element.classList.remove('iconWashActive');
+        washSymbolsList[i] = false;
+    } else {
+        element.classList.add('iconWashActive');
+        washSymbolsList[i] = true;
     }
-    set('/setPosition', positionData).then((data) => {
-        fetch('/getPositionsList')
-            .then(response => response.json())
-            .then(data => console.log(data));
-    });
+}
+
+const cleanForm = () => {
+    document.getElementById('adminPass').value = "";
+    document.getElementById('name').value = "";
+    document.getElementById('section').value = "1";
+    document.getElementById('category').value = "1";
+    document.getElementById('description').value = "";
+    document.getElementById('composition').value = "";
+    for (let i = 1; i <= 34; i++) {
+        document.getElementById(`iconWash${i}`).classList.remove('iconWashActive');
+        washSymbolsList[i] = false;
+    }
+    for (let i = 0; i < MAX_IMAGE_COUNT; i++) {
+        document.getElementById(`addButton${i}`).remove();   
+    }
+    imageList = [];
+    buttonCounter = 0;
+}
+
+const checkFields = () => {
+    if (!document.getElementById('adminPass').value) {
+        return false;
+    }
+    if (!document.getElementById('name').value) {
+        return false;
+    }
+    if (!document.getElementById('description').value) {
+        return false;
+    }
+    if (!document.getElementById('composition').value) {
+        return false;
+    }
+    if (imageList.length !== 2) {
+        return false;
+    } 
+    if (!washSymbolsList.contains(true)) {
+        return false;
+    }
+    return true;
+}
+
+const sendData = () => {
+    if (checkFields()) {
+        const positionData = {
+            name: document.getElementById("name").value,
+            section: document.getElementById("section").value,
+            category: document.getElementById("category").value,
+            description: document.getElementById("description").value,
+            washSymbolsList: washSymbolsList,
+            imageList: imageList,
+            adminPass: document.getElementById("adminPass").value
+        }
+        set('/setPosition', positionData).then((data) => {
+            openModal(null, 'modalContainerFinish');
+    
+            // fetch('/getPositionsList')
+            //     .then(response => response.json())
+            //     .then(data => console.log(data));
+    
+        });
+    } else {
+        openModal(null,"modalContainerError");
+    }
+
 } 
 
 async function set(url, params) {

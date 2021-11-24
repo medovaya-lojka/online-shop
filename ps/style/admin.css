@@ -73,9 +73,14 @@ h2 {
 .iconWash {
     width: 50px;
     height: 50px;
-    padding: 5px;
+    padding: 2px;
     display: none;
-    border: 1px rgb(255, 255, 255) solid;
+    border: 2px rgb(255, 255, 255) solid;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    margin-bottom: 12px;
+
 }
 
 .iconWash img {
@@ -84,12 +89,14 @@ h2 {
 }
 
 .iconWashActive {
-    border: 2px black solid;
+    border: 2px rgb(97, 97, 97) solid !important;
+    
 }
 
 .iconWash:hover {
-    border: 1px black solid;
-    background-color: rgba(85, 80, 80, 0.137);
+    border: 2px rgb(97, 97, 97) solid;
+    background-color: rgba(226, 226, 226, 0.274);
+    filter: invert(5%);
 }
 
 .image-container {
@@ -102,7 +109,7 @@ h2 {
     font-family: Icons;
     height: 50px;
     width: 50px;
-    border: 1px gray solid;
+    border: 2px gray solid;
     line-height: 50px;
     text-align: center;
     font-size: 24px;

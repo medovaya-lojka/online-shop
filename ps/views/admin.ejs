@@ -18,22 +18,22 @@
             <option value="2">Мужская</option>
         </select>
         <select id="category">
-            <option value="1">Куртки</option>
+            <option value="1"> </option>
         </select>
         <div class="size">
             <div></div>
         </div>
         <textarea placeholder="Описание товара" class="description" id="description"></textarea>
         <input placeholder="Состав" class="composition" type="text" id="composition">
-        <div class="header-label">Выберите соотвествующие символы по уходу</div>
+        <div class="header-label">Выберите соотвествующие уходу символы</div>
         <div class="image-container" id="imageContainerWash">
-            <div class="iconWash" id="iconWash">
+            <div class="iconWash" id="iconWash" onclick="iconWashPick(this)">
                 <img src="/pictures/washSymbols/1@2x.png">
             </div>
         </div>
         <div class="header-label">Добавьте изображения товара</div>
         <div class="image-container" id="imageContainer">
-            <div class="add-button" id="addButton" onclick="openModal(this)"></div>
+            <div class="add-button" id="addButton" onclick="openModal(this, 'modalContainer')"></div>
         </div>
     </div>
     <div class="submit-container">
@@ -42,13 +42,35 @@
         </div>
     </div>
 </div>
-<div class="modal-container" id="modalContainer" onmousedown="closeModal()">
+<div class="modal-container" id="modalContainer" onmousedown="closeModal('modalContainer')">
     <div class="modal" id="modal">
-        <div class="cross-button" onclick="closeModal()"></div>
+        <div class="cross-button" onclick="closeModal('modalContainer')"></div>
         <div class="text-modal">Добавьте ссылку на изображение</div>
         <input placeholder="URL изображения" class="modal-description" id="picURL"></input>
         <div class="modal-container-add-button">
             <div class="modal-add-button" onclick="modalConfirm()">
+                Ок
+            </div>
+        </div>
+    </div>  
+</div>
+<div class="modal-container" id="modalContainerFinish">
+    <div class="modal" id="modalFinish">
+        <div class="cross-button" onclick="closeModal('modalContainerFinish')"></div>
+        <div class="text-modal">Позиция добавлена</div>
+        <div class="modal-container-add-button">
+            <div class="modal-add-button" onclick="closeModal('modalContainerFinish', true)">
+                Ок
+            </div>
+        </div>
+    </div>  
+</div>
+<div class="modal-container" id="modalContainerError">
+    <div class="modal" id="modalError">
+        <div class="cross-button" onclick="closeModal('modalContainerError')"></div>
+        <div class="text-modal">Позиция не добавлена, заполните все поля</div>
+        <div class="modal-container-add-button">
+            <div class="modal-add-button" onclick="closeModal('modalContainerError')">
                 Ок
             </div>
         </div>
