@@ -70,6 +70,51 @@ h2 {
     width: 100%;
 }
 
+.size {
+    display: flex;
+}
+
+.size-button {
+    display: flex;
+    border: 2px rgb(97, 97, 97) solid;
+    box-sizing: border-box;
+    width: 80px;
+    padding: 0;
+}
+
+.size-value {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    padding: 0;
+}
+
+.sizeValueActive {
+    background-color:#000000;
+    color: rgb(255, 255, 255);
+}
+
+.sizeValueActive:hover {
+    background-color: rgb(56, 56, 56) !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+.size-button:hover {
+    background-color: rgba(218, 216, 216, 0.342);
+}
+
+.size-quantity {
+    width: 50%;
+}
+
+.size-quantity_input {
+    border-bottom: none !important;
+    height: 40px;
+    margin-top: 0 !important;
+}
+
 .iconWash {
     width: 50px;
     height: 50px;

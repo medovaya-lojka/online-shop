@@ -4,6 +4,7 @@ let imageList = [];
 const MAX_IMAGE_COUNT = 2;
 let categoryList;
 const washSymbolsList = [];
+const sizeList = [];
 
 const closeModal = (id, shouldClean) => {
     document.getElementById(id).style.display = "none";
@@ -52,6 +53,18 @@ window.addEventListener("load", () => {
     updateCategorySelect();
     washIconsFill();
 })
+
+const sizeButtonPick = (element) => {
+    let i = element.value;
+    if (element.classList.contains('sizeValueActive')) {
+        element.classList.remove('sizeValueActive');
+        sizeList[i] = 0;
+        document.getElementById(`sizeQuantity${i}`).value = "";
+    } else {
+        element.classList.add('sizeValueActive');
+        sizeList[i] = document.getElementById(`sizeQuantity${i}`).value;
+    }
+}
 
 const washIconsFill = () => {
     for (let i = 1; i <= 34; i++) {
