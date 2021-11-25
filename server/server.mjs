@@ -22,6 +22,10 @@ app.get('/getCategoryList', async (req, res) => {
     res.send(await db.getData('categories'));
 })
 
+app.get('/getSizeList', async (req, res) => {
+    res.send(await db.getData('sizes'));
+})
+
 app.post('/setPosition', (req, res) => {
     db.push('positions', req.body);
     res.send({success: true});
