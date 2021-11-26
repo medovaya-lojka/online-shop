@@ -32,8 +32,8 @@ const copyAddButton = () => {
     }   
 }
 
-const modalConfirm = () => {
-    closeModal();
+const modalConfirm = (id) => {
+    closeModal(id);
     const picURL = document.getElementById("picURL").value;
     const addCur = document.getElementById(currentModalId);
     if(picURL) {
@@ -55,15 +55,15 @@ window.addEventListener("load", () => {
 })
 
 const sizeButtonPick = (element) => {
-    let i = element.value;
-    if (element.classList.contains('sizeValueActive')) {
-        element.classList.remove('sizeValueActive');
-        sizeList[i] = 0;
-        document.getElementById(`sizeQuantity${i}`).value = "";
-    } else {
-        element.classList.add('sizeValueActive');
-        sizeList[i] = document.getElementById(`sizeQuantity${i}`).value;
-    }
+    // let i = element.value;
+    // if (element.classList.contains('sizeValueActive')) {
+        // element.classList.remove('sizeValueActive');
+        // sizeList[i] = 0;
+        // document.getElementById(`sizeQuantity${i}`).value = "";
+    // } else {
+        // element.classList.add('sizeValueActive');
+        // sizeList[i] = document.getElementById(`sizeQuantity${i}`).value;
+    // }
 }
 
 const washIconsFill = () => {
@@ -127,7 +127,7 @@ const checkFields = () => {
     if (imageList.length !== 2) {
         return false;
     } 
-    if (!washSymbolsList.contains(true)) {
+    if (!washSymbolsList.includes(true)) {
         return false;
     }
     return true;
@@ -183,15 +183,16 @@ const updateCategorySelect = () => {
         let categorySelect = document.getElementById("category");
         categorySelect.innerHTML = "";
         let curSection = document.getElementById("section").value;
-        categoryList[curSection]["Одежда"].forEach((el, index) => {
+        let valueIndex = 0;
+        categoryList[curSection]["Одежда"].forEach((el) => {
             let option = document.createElement("option");
-            option.value = index;
+            option.value = valueIndex++;
             option.innerHTML = el;
             categorySelect.appendChild(option);
         });
-        categoryList[curSection]["Аксессуары"].forEach((el, index) => {
+        categoryList[curSection]["Аксессуары"].forEach((el) => {
             let option = document.createElement("option");
-            option.value = index;
+            option.value = valueIndex++;
             option.innerHTML = el;
             categorySelect.appendChild(option);
         });

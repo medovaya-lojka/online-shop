@@ -34,3 +34,7 @@ app.post('/setPosition', (req, res) => {
 app.get('/admin', (req, res) => {
     res.render('admin');
 })
+
+app.get('/list', (req, res) => {
+    res.render('goodsList');
+})
