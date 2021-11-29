@@ -75,11 +75,12 @@ h2 {
 }
 
 .size-button {
-    display: flex;
+    display: none;
     border: 2px rgb(97, 97, 97) solid;
     box-sizing: border-box;
     width: 80px;
     padding: 0;
+    margin: 10px;
 }
 
 .size-value {
@@ -94,6 +95,7 @@ h2 {
 .sizeValueActive {
     background-color:#000000;
     color: rgb(255, 255, 255);
+    border: 2px black solid !important;
 }
 
 .sizeValueActive:hover {
@@ -192,7 +194,7 @@ h2 {
 }
 
 .modal-container {
-    position: absolute;
+    position: fixed;
     background-color: rgba(255, 255, 255, 0.877);
     top: 0;
     left: 0;

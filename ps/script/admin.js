@@ -5,6 +5,7 @@ const MAX_IMAGE_COUNT = 2;
 let categoryList;
 const washSymbolsList = [];
 const sizeList = [];
+let sizeCount = 0;
 
 const closeModal = (id, shouldClean) => {
     document.getElementById(id).style.display = "none";
@@ -52,18 +53,37 @@ window.addEventListener("load", () => {
     });
     updateCategorySelect();
     washIconsFill();
+    sizeFill();
 })
 
 const sizeButtonPick = (element) => {
-    // let i = element.value;
-    // if (element.classList.contains('sizeValueActive')) {
-        // element.classList.remove('sizeValueActive');
-        // sizeList[i] = 0;
-        // document.getElementById(`sizeQuantity${i}`).value = "";
-    // } else {
-        // element.classList.add('sizeValueActive');
-        // sizeList[i] = document.getElementById(`sizeQuantity${i}`).value;
-    // }
+    let i = element.value;
+    if (element.classList.contains('sizeValueActive')) {
+        element.classList.remove('sizeValueActive');
+        sizeList[i] = 0;
+        document.getElementById(`sizeQuantity${i}`).value = "";
+    } else {
+        element.classList.add('sizeValueActive');
+        sizeList[i] = document.getElementById(`sizeQuantity${i}`).value;
+    }
+}
+
+const sizeFill = () => {
+    fetch('/getSizeList')
+    .then(response => response.json())
+    .then((data) => {
+        data.forEach((size, index) => {
+            const sizeButton = document.getElementById("sizeButton").cloneNode(true);
+            sizeButton.id = `sizeButton${index}`;
+            sizeButton.value = index;
+            sizeButton.style.display = "flex";
+            sizeButton.querySelector("#sizeValue").innerHTML = size;
+            sizeButton.querySelector("#sizeQuantity").dataId = index;
+            sizeButton.querySelector("#sizeQuantity").id = `sizeQuantity${index}`;
+            document.getElementById("sizeContainer").appendChild(sizeButton);
+        })
+        sizeCount = data.length;
+    });
 }
 
 const washIconsFill = () => {
@@ -100,6 +120,10 @@ const cleanForm = () => {
     document.getElementById('category').value = "1";
     document.getElementById('description').value = "";
     document.getElementById('composition').value = "";
+    for (let i = 0; i < sizeCount; i++) {
+        document.getElementById(`sizeButton${i}`).classList.remove('sizeValueActive');
+        document.getElementById(`sizeQuantity${i}`).value = "";
+    }
     for (let i = 1; i <= 34; i++) {
         document.getElementById(`iconWash${i}`).classList.remove('iconWashActive');
         washSymbolsList[i] = false;
@@ -139,6 +163,7 @@ const sendData = () => {
             name: document.getElementById("name").value,
             section: document.getElementById("section").value,
             category: document.getElementById("category").value,
+            sizeList: sizeList,
             description: document.getElementById("description").value,
             washSymbolsList: washSymbolsList,
             imageList: imageList,
