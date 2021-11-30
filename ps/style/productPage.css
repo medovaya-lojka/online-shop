@@ -1,0 +1,41 @@
+body {
+    font-family: Myfont-Light, sans-serif;
+    min-height: 100vh;
+    font-size: 1.5rem;
+    background-color: #ffffff;
+}
+
+.product-details, .container-info, .color, .container-add, .product-page {
+    display: flex;
+}
+
+.product-page {
+    margin-top: 80px;
+}
+
+.product-details {
+    width: 70%;
+    margin-left: 20px;
+}
+
+.picture-button {
+    width: 50%;
+    padding: 1px;
+}
+
+.picture-button img {
+    width: 100%;
+}
+
+.product-actions {
+    width: 30%;
+    padding-left: 60px;
+    margin-right: 20px;
+}
+
+.container-info {
+    width: 100%;
+    justify-content: space-between;
+}
+
+

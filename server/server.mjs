@@ -35,6 +35,10 @@ app.get('/admin', (req, res) => {
     res.render('admin');
 })
 
+app.get('/productPage', (req, res) => {
+    res.render('productPage');
+})
+
 app.get('/list', (req, res) => {
     res.render('goodsList');
 })
