@@ -152,6 +152,34 @@ h2 {
     flex-wrap: wrap;
 }
 
+.color-container {
+    display: flex;
+}
+
+.color-input-text {
+    width: 30% !important;
+    margin-right: 12px;
+}
+
+.color-input {
+    width: 28px !important;
+    border-bottom: 0px !important;
+    border: 1px black solid;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    width: 30px;
+    height: 28px;
+    margin-left: -6px;
+    margin-top: -6px;
+    margin-right: -6px;
+}
+
 .add-button {
     font-family: Icons;
     height: 50px;

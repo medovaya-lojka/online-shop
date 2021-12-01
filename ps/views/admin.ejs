@@ -30,7 +30,6 @@
                     <input class="size-quantity_input" placeholder="шт." id="sizeQuantity"> 
                 </div>
             </div>
-            <div></div>
         </div>
         <textarea placeholder="Описание товара" class="description" id="description"></textarea>
         <input placeholder="Состав" class="composition" type="text" id="composition">
@@ -44,6 +43,11 @@
         <div class="image-container" id="imageContainer">
             <div class="add-button" id="addButton" onclick="openModal(this, 'modalContainer')"></div>
         </div>
+    </div>
+    <div class="header-label">Выберите цвет товара</div>
+    <div class="color-container">
+        <input placeholder="Название цвета" class="color-input-text">
+        <input type="color" class="color-input">
     </div>
     <div class="submit-container">
         <div class="submit-button" onclick="sendData()">
