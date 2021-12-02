@@ -22,12 +22,12 @@
         </select>
         <div class="header-label">Выберите размер товара и его количество на складе</div>
         <div class="size" id="sizeContainer">
-            <div class="size-button" id="sizeButton" onclick="sizeButtonPick(this)">
-                <div class="size-value" id="sizeValue">
+            <div class="size-button" id="sizeButton">
+                <div class="size-value" id="sizeValue" onclick="sizeButtonPick(this)">
                     xs
                 </div>
                 <div class="size-quantity">
-                    <input class="size-quantity_input" placeholder="шт." id="sizeQuantity"> 
+                    <input class="size-quantity_input" placeholder="шт." id="sizeQuantity" onchange="sizeChange(this)" disabled> 
                 </div>
             </div>
         </div>
@@ -46,8 +46,8 @@
     </div>
     <div class="header-label">Выберите цвет товара</div>
     <div class="color-container">
-        <input placeholder="Название цвета" class="color-input-text">
-        <input type="color" class="color-input">
+        <input placeholder="Название цвета" class="color-input-text" id="colorName"> 
+        <input type="color" class="color-input" id="color">
     </div>
     <div class="submit-container">
         <div class="submit-button" onclick="sendData()">

@@ -56,15 +56,26 @@ window.addEventListener("load", () => {
     sizeFill();
 })
 
-const sizeButtonPick = (element) => {
+const sizeChange = (element) => {
+    if (element.classList.contains('sizeValueActive')) {
+        let i = element.id.split("sizeQuantity")[1];
+        sizeList[i] = element.value;   
+    }
+
+}
+
+const sizeButtonPick = (target) => {
+    let element = target.parentElement;
     let i = element.value;
     if (element.classList.contains('sizeValueActive')) {
         element.classList.remove('sizeValueActive');
+        document.getElementById(`sizeQuantity${i}`).disabled = true;
         sizeList[i] = 0;
         document.getElementById(`sizeQuantity${i}`).value = "";
     } else {
         element.classList.add('sizeValueActive');
         sizeList[i] = document.getElementById(`sizeQuantity${i}`).value;
+        document.getElementById(`sizeQuantity${i}`).disabled = false;
     }
 }
 
@@ -120,6 +131,8 @@ const cleanForm = () => {
     document.getElementById('category').value = "1";
     document.getElementById('description').value = "";
     document.getElementById('composition').value = "";
+    document.getElementById('colorName').value = "";
+    document.getElementById('color').value = "#ffffff";
     for (let i = 0; i < sizeCount; i++) {
         document.getElementById(`sizeButton${i}`).classList.remove('sizeValueActive');
         document.getElementById(`sizeQuantity${i}`).value = "";
@@ -154,6 +167,9 @@ const checkFields = () => {
     if (!washSymbolsList.includes(true)) {
         return false;
     }
+    if (!document.getElementById("colorName").value) {
+        return false;
+    }
     return true;
 }
 
@@ -167,6 +183,8 @@ const sendData = () => {
             description: document.getElementById("description").value,
             washSymbolsList: washSymbolsList,
             imageList: imageList,
+            colorName: document.getElementById("colorName").value,
+            color: document.getElementById("color").value,
             adminPass: document.getElementById("adminPass").value
         }
         set('/setPosition', positionData).then((data) => {
