@@ -6,6 +6,7 @@ const app = startServer(PORT);
 const db = new Database();
 await db.init();
 await db.getData();
+
 app.get('/', (req, res) => {
     res.render('main');
 })
@@ -26,17 +27,36 @@ app.get('/getSizeList', async (req, res) => {
     res.send(await db.getData('sizes'));
 })
 
+const getRandomInRange = (min, max) => {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
 app.post('/setPosition', (req, res) => {
+    let isIdValid = false;
+    let randId;
+    while (!isIdValid) {
+        randId = getRandomInRange(1000000, 10000000);
+        if (!db.getPosition(randId)) {
+            isIdValid = true;
+        }
+    }
+    req.body.id = randId;
     db.push('positions', req.body);
-    res.send({success: true});
+    res.send({success: true, id: randId});
 })
 
 app.get('/admin', (req, res) => {
     res.render('admin');
 })
 
-app.get('/productPage', (req, res) => {
-    res.render('productPage');
+app.get('/productPage', async (req, res) => {
+    const curPos = await db.getPosition(req.query.id);
+    console.log(curPos);
+    if(curPos) {
+        res.render('productPage', {product: curPos});
+    } else {
+        res.render('errorPage', {id: 404});
+    }
 })
 
 app.get('/list', (req, res) => {

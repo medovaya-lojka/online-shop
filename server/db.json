@@ -26,6 +26,7 @@
   },
   "positions": [
     {
+      "id": 1000,
       "name": "пряня",
       "section": "1",
       "category": "1",

@@ -26,6 +26,16 @@ class Database {
         await this.db.write();
     }
 
+    async getPosition(id) {
+        let curItem;
+        this.db.data.positions.forEach((item) => {
+            if (item.id === Number(id)) {
+                curItem = item;
+            }
+        })
+        return curItem;
+    }
+
     async getData(target) {
         return this.db.data[target];
     }
