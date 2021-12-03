@@ -1,11 +1,11 @@
 body {
     font-family: Myfont-Light, sans-serif;
     min-height: 100vh;
-    font-size: 1.5rem;
+    font-weight: normal;
     background-color: #ffffff;
 }
 
-.product-details, .container-info, .color, .container-add, .product-page {
+.product-details, .container-info, .color, .container-add, .product-page, .size {
     display: flex;
 }
 
@@ -36,6 +36,47 @@ body {
 .container-info {
     width: 100%;
     justify-content: space-between;
+    padding-top: 50px;
+    font-size: 18px;
 }
 
+.color {
+    justify-content: space-between;
+    font-size: 13px;
+    color: rgb(139, 139, 139);
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
 
+.color-button {
+    border: 1px black solid;
+    width: 18px;
+    height: 18px;
+}
+
+.size {
+    justify-content: center;
+}
+
+.container-add {
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.add-button {
+    height: 42px;
+    line-height: 42px;
+    width: 80%;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 0 10px;
+    font-size: 13px;
+    cursor: pointer;
+    background-color:#000000;
+}
+
+.favorite-button {
+    height: 42px;
+    line-height: 42px;
+    padding: 9px;
+}
