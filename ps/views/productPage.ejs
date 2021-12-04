@@ -3,13 +3,30 @@
 <%- include('header') %>
 <div class="product-page"> 
     <div class="product-details">
-        <div class="picture-button">
-            <img src="<%- product.imageList[0] %>">
+        <div class="product-details-pictures">
+            <div class="picture-button">
+                <img src="<%- product.imageList[0] %>">
+            </div>
+            <div class="picture-button">
+                <img src="<%- product.imageList[1] %>">
+            </div>
         </div>
-        <div class="picture-button">
-            <img src="<%- product.imageList[1] %>">
+        <div class="product-properties">
+            <div class="description">
+                <%- product.description %>
+            </div>
+            <div class="composition">
+                Состав — <%- product.composition %>
+            </div>
+            <div class="wash-symbols">
+                Рекомендации по уходу — 
+            </div>
+            <div class="product-id">
+                Арт. № — <%- product.id %>
+            </div>
         </div>
     </div>
+    
     <div class="product-actions">
         <div class="container-info">
             <div class="name"><%- product.name %></div>

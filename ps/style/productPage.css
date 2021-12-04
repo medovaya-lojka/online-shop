@@ -5,7 +5,7 @@ body {
     background-color: #ffffff;
 }
 
-.product-details, .container-info, .color, .container-add, .product-page, .size {
+.product-details-pictures, .container-info, .color, .container-add, .product-page, .size {
     display: flex;
 }
 
@@ -13,7 +13,7 @@ body {
     margin-top: 80px;
 }
 
-.product-details {
+.product-details-pictures {
     width: 70%;
     margin-left: 20px;
 }
@@ -80,3 +80,8 @@ body {
     line-height: 42px;
     padding: 9px;
 }
+
+.product-details {
+    width: 70%;
+}
+
