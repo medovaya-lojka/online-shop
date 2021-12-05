@@ -7,11 +7,11 @@
 </div>
 <div class="admin-form">
     <h2>Создание позиции</h2>
-    <div class="admin-form_pass">
-        <input placeholder="Пароль для подтверждения" type="password" id="adminPass">
-    </div>
     <div class="admin-position">
-        <input placeholder="Наименование товара" class="name" type="text" id="name">
+        <div class="info-container">
+            <input placeholder="Наименование товара" class="name" type="text" id="name">
+            <input placeholder="Стоимость товара" class="price" type="text" id="price">
+        </div>
         <div class="header-label">Выберите раздел и категорию товара</div>
         <select id="section" onchange="updateCategorySelect()">
             <option value="1">Женская</option>
@@ -35,7 +35,7 @@
         <input placeholder="Состав" class="composition" type="text" id="composition">
         <div class="header-label">Выберите соотвествующие уходу символы</div>
         <div class="image-container" id="imageContainerWash">
-            <div class="iconWash" id="iconWash" onclick="iconWashPick(this)">
+            <div class="iconWash" id="iconWash" onclick="iconWashPick(this)" title="">
                 <img src="/pictures/washSymbols/1@2x.png">
             </div>
         </div>
@@ -48,6 +48,9 @@
     <div class="color-container">
         <input placeholder="Название цвета" class="color-input-text" id="colorName"> 
         <input type="color" class="color-input" id="color">
+    </div>
+    <div class="admin-form_pass">
+        <input placeholder="Пароль для подтверждения" type="password" id="adminPass">
     </div>
     <div class="submit-container">
         <div class="submit-button" onclick="sendData()">

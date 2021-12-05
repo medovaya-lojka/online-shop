@@ -57,7 +57,15 @@ h2 {
 
 .admin-form select{
     width: 30%;
-    
+}
+
+.info-container {
+    display: flex;
+}
+
+.name, .price, .admin-form_pass {
+    width: 30% !important;
+    margin-right: 12px;
 }
 
 .header-label {
