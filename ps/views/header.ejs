@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="style/style.css">
+<script src="script/header.js"></script>
 <div class="main-header">
     <img class="main-header_logo" src="pictures/logo.png">
-    <div class="main-header_sections">
+    <div class="main-header_sections" id="sectionsContainer">
         <div class="main-header_sections-she">
             <span class="main-header_sections-she_text">Женское</span>
             <div class="main-header_dropdown">
@@ -37,10 +38,14 @@
             </div>
         </div>
     </div>
+    <div class="main-header_search" id="searchContainer">
+        <div class="icon"></div>
+        <input type="text" placeholder="Искать товары">
+    </div>
     <div class="main-header_menu">
-        <div>
-            <div class="icon"></div>
-            <div>Поиск</div>
+        <div onclick="toggleSearch()">
+            <div class="icon" id="iconSearch"></div>
+            <div id="titleSearch">Поиск</div>
         </div>
         <div>
             <div class="icon"></div>

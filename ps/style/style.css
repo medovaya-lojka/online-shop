@@ -37,6 +37,7 @@
     margin-left: 6px;
     margin-right: 6px;
     min-width: max-content;
+    cursor: pointer;
 }
 
 .main-header_menu .icon {
@@ -52,6 +53,26 @@
     justify-content: flex-start;
     padding-left: 24px;
     font-size: 13px;
+}
+
+.main-header_search {
+    display: none;
+}
+
+.main-header_search .icon {
+    font-size: 24px;
+    color: rgb(114, 114, 114);
+    cursor: pointer;
+}
+
+.main-header_search input {
+    border: none;
+    margin-left: 10px;
+}
+
+.main-header_search input:focus {
+    border: 0;
+    outline: none;
 }
 
 .main-header_sections-she, .main-header_sections-he {
