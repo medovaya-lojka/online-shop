@@ -1,0 +1,39 @@
+<header>
+    <link rel="stylesheet" href="style/auth.css">
+    <title>
+        Авторизация
+    </title>
+</header>
+<%- include('header') %>
+<body class="layout">
+   <div class="form-container">
+        <div class="form-control">
+            <div class="form-switch1">
+                Войти
+            </div>
+            <div class="form-switch2">
+                Регистрация
+            </div>
+        </div>
+        <div class="form-login">
+            <form>
+                <input placeholder="E-mail">
+                <div class="remark">
+                    Это обязательное поле.
+                </div>
+                <input placeholder="Password" type="password">
+                <div class="remark">
+                    Это обязательное поле.
+                </div>
+                <div class="log-in-button">
+                    Войти
+                </div>
+            </form>
+            <div class="forgot-password-container">
+                <div class="forgot-password-button">
+                    Забыли пароль?
+                </div>
+            </div>
+        </div>
+   </div> 
+</body>

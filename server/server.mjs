@@ -49,6 +49,10 @@ app.get('/admin', (req, res) => {
     res.render('admin');
 })
 
+app.get('/auth', (req, res) => {
+    res.render('auth');
+})
+
 app.get('/productPage', async (req, res) => {
     const curPos = await db.getPosition(req.query.id);
     console.log(curPos);
