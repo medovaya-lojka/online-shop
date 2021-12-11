@@ -1,5 +1,6 @@
 <header>
     <link rel="stylesheet" href="style/auth.css">
+    <script src="script/auth.js"></script>
     <title>
         Авторизация
     </title>
@@ -8,24 +9,24 @@
 <body class="layout">
    <div class="form-container">
         <div class="form-control">
-            <div class="form-switch1">
-                Войти
+            <div class="form-switch1 form-switch-active" id="logInSwitch" onclick="switchForm('logIn')">
+                Вход
             </div>
-            <div class="form-switch2">
+            <div class="form-switch2" id="registerSwitch" onclick="switchForm('register')">
                 Регистрация
             </div>
         </div>
-        <div class="form-login">
+        <div class="form-login" id="logInForm"> 
             <form>
                 <input placeholder="E-mail">
                 <div class="remark">
                     Это обязательное поле.
                 </div>
-                <input placeholder="Password" type="password">
+                <input placeholder="Пароль" type="password">
                 <div class="remark">
                     Это обязательное поле.
                 </div>
-                <div class="log-in-button">
+                <div class="auth-button">
                     Войти
                 </div>
             </form>
@@ -34,6 +35,29 @@
                     Забыли пароль?
                 </div>
             </div>
+        </div>
+        <div class="form-register" id="registerForm">
+            <form>
+                <input placeholder="Имя">
+                <div class="remark">
+                    Это обязательное поле.
+                </div>
+                <input placeholder="E-mail">
+                <div class="remark">
+                    Это обязательное поле.
+                </div>
+                <input placeholder="Пароль" type="password">
+                <div class="remark">
+                    Это обязательное поле.
+                </div>
+                <input placeholder="Повторите пароль" type="password">
+                <div class="remark">
+                    Это обязательное поле.
+                </div>
+                <div class="auth-button">
+                    Зарегистрироваться
+                </div>
+            </form>
         </div>
    </div> 
 </body>

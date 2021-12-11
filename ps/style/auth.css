@@ -29,13 +29,18 @@ body {
     font-size: 14px;
     width: 100%;
     margin-bottom: 24px;
+    cursor: pointer;
 }
 
-.form-switch1 {
+.form-switch-active {
     border-bottom: 1px black solid;
 }
 
-.form-login input {
+.form-register {
+    display: none;
+}
+
+.form-login input, .form-register input {
     border: 0;
     border-bottom: 1px rgb(156, 156, 156) solid;
     margin-top: 12px;
@@ -44,13 +49,13 @@ body {
     width: 100%;
 }
 
-.form-login input:focus {
+.form-login input:focus, .form-register input:focus {
     border: 0;
     border-bottom: 1px rgb(85, 80, 80) solid;
     outline: none;
 }
 
-.log-in-button {
+.auth-button {
     color: rgb(255, 255, 255);
     margin-top: 36px;
     text-align: center;
@@ -60,7 +65,7 @@ body {
     background-color:#000000;
 }
 
-.log-in-button:hover {
+.auth-button:hover {
     background-color: rgb(56, 56, 56);
 }
 
