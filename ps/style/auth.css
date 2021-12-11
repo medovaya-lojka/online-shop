@@ -85,3 +85,27 @@ body {
     height: 44px;
     line-height: 44px;
 }
+
+.login-password {
+    display: flex;
+    position: relative;
+}
+
+.icon-eye {
+    font-family: Icons;
+    position: absolute;
+    margin-top: 12px;
+    right: 0;
+    cursor: pointer;
+    color: rgb(156, 156, 156);
+    display: none;
+}
+
+.icon-eye:hover {
+    color: rgb(56, 56, 56);
+}
+
+@font-face {
+    font-family: Icons;
+    src: url("fonts/font.woff") format("woff")
+}

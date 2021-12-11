@@ -22,7 +22,12 @@
                 <div class="remark">
                     Это обязательное поле.
                 </div>
-                <input placeholder="Пароль" type="password">
+                <div class="login-password">
+                    <input placeholder="Пароль" type="password" id="passwordInp" oninput="passwordHandler(this)">
+                    <div class="icon-eye" onclick="lookPassword()" id="iconEye">
+                        
+                    </div>
+                </div>
                 <div class="remark">
                     Это обязательное поле.
                 </div>
