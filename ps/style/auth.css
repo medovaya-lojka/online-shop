@@ -51,7 +51,7 @@ body {
 
 .form-login input:focus, .form-register input:focus {
     border: 0;
-    border-bottom: 1px rgb(85, 80, 80) solid;
+    border-bottom: 1px rgb(85, 80, 80) solid !important;
     outline: none;
 }
 
@@ -73,6 +73,7 @@ body {
     color: rgb(243, 17, 17);
     font-size: 11px;
     margin-bottom: 16px;
+    visibility: hidden;
 }
 
 .form-login form {

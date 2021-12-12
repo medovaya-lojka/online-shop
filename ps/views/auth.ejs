@@ -7,7 +7,7 @@
 </header>
 <%- include('header') %>
 <body class="layout">
-   <div class="form-container">
+   <div class="form-container" id="container">
         <div class="form-control">
             <div class="form-switch1 form-switch-active" id="logInSwitch" onclick="switchForm('logIn')">
                 Вход
@@ -18,12 +18,12 @@
         </div>
         <div class="form-login" id="logInForm"> 
             <form>
-                <input placeholder="E-mail">
+                <input placeholder="E-mail" id="email">
                 <div class="remark">
                     Это обязательное поле.
                 </div>
                 <div class="login-password">
-                    <input placeholder="Пароль" type="password" id="passwordInp" oninput="passwordHandler(this)">
+                    <input placeholder="Пароль" type="password" id="passwordInp" oninput="passwordHandler(this)" complex>
                     <div class="icon-eye" onclick="lookPassword()" id="iconEye">
                         
                     </div>
@@ -43,19 +43,19 @@
         </div>
         <div class="form-register" id="registerForm">
             <form>
-                <input placeholder="Имя">
+                <input placeholder="Имя" id="name">
                 <div class="remark">
                     Это обязательное поле.
                 </div>
-                <input placeholder="E-mail">
+                <input placeholder="E-mail" id="emailReg">
                 <div class="remark">
                     Это обязательное поле.
                 </div>
-                <input placeholder="Пароль" type="password">
+                <input placeholder="Пароль" type="password" id="password" onfocusout="repeatPassCheck()" repeat>
                 <div class="remark">
                     Это обязательное поле.
                 </div>
-                <input placeholder="Повторите пароль" type="password">
+                <input placeholder="Повторите пароль" type="password" id="passwordRepeat" onfocusout="repeatPassCheck()" repeat>
                 <div class="remark">
                     Это обязательное поле.
                 </div>
