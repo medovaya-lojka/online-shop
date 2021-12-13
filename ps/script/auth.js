@@ -10,6 +10,14 @@ window.addEventListener('load', () => {
     })
 })
 
+const closeModal = () => {
+    document.getElementById("modalContainer").style.display = 'none';
+}
+
+const openModal = () => {
+    document.getElementById("modalContainer").style.display = 'flex';
+}
+
 const repeatPassCheck = () => {
     const secondInp = document.getElementById("passwordRepeat");
     const firstInp = document.getElementById("password");

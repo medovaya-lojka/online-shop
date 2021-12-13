@@ -40,7 +40,7 @@ body {
     display: none;
 }
 
-.form-login input, .form-register input {
+.form-login input, .form-register input, .modal-description {
     border: 0;
     border-bottom: 1px rgb(156, 156, 156) solid;
     margin-top: 12px;
@@ -49,7 +49,7 @@ body {
     width: 100%;
 }
 
-.form-login input:focus, .form-register input:focus {
+.form-login input:focus, .form-register input:focus, .modal-description:focus {
     border: 0;
     border-bottom: 1px rgb(85, 80, 80) solid !important;
     outline: none;
@@ -82,9 +82,16 @@ body {
 
 .forgot-password-container {
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     height: 44px;
     line-height: 44px;
+    color: rgb(53, 53, 53);
+}
+
+.forgot-password-button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: black;
 }
 
 .login-password {
@@ -104,6 +111,80 @@ body {
 
 .icon-eye:hover {
     color: rgb(56, 56, 56);
+}
+
+
+.modal-container {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.877);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100wh;
+    font-family: Myfont-Light, sans-serif;
+}
+
+.cross-button {
+    font-family: Icons;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.cross-button:hover {
+    font-weight: 700;
+}
+
+.modal-header {
+    padding: 10px 0px;
+    margin-top: 12px;
+    font-size: 18px;
+}
+
+.modal-text {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.modal {
+    position: absolute;
+    width: 30%;
+    border: 1px rgb(156, 156, 156) solid;
+    padding: 0 40px 40px 40px;
+    background-color: rgb(255, 255, 255);
+}
+
+.modal-description {
+    width: 100%;
+    resize: none;
+}
+
+.modal-container-add-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-add-button {
+    width: fit-content;
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px 10px;
+    font-size: 16px;
+    border: 1px rgb(119, 119, 119) solid;
+    cursor: pointer;
+    color:#ffffff;
+    background-color:#000000;
+}
+
+.modal-add-button:hover {
+    background-color: rgb(56, 56, 56);
 }
 
 @font-face {

@@ -57,7 +57,6 @@ const openModal = (e, id) => {
     if (e) {
         currentModalId = e.id;
     }
-
 }
 
 const copyAddButton = () => {

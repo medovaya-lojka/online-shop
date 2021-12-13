@@ -33,6 +33,11 @@
     font-size: 11px;
 }
 
+.main-header_menu a {
+    color: black;
+    text-decoration: none;
+}
+
 .main-header_menu div {
     margin-left: 6px;
     margin-right: 6px;

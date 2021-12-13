@@ -36,7 +36,7 @@
                 </div>
             </form>
             <div class="forgot-password-container">
-                <div class="forgot-password-button">
+                <div class="forgot-password-button" onclick="openModal()">
                     Забыли пароль?
                 </div>
             </div>
@@ -65,4 +65,17 @@
             </form>
         </div>
    </div> 
+   <div class="modal-container" id="modalContainer" onmousedown="closeModal()">
+    <div class="modal" id="modal">
+        <div class="cross-button" onclick="closeModal()"></div>
+        <div class="modal-header">Восстановить пароль</div>
+        <div class="modal-text">На вашу почту будет направлено письмо с инструкцией</div>
+        <input placeholder="E-mail" class="modal-description" id="picURL"></input>
+        <div class="modal-container-add-button">
+            <div class="modal-add-button" onclick="modalConfirm()">
+                Отправить
+            </div>
+        </div>
+    </div>  
+</div>
 </body>
