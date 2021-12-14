@@ -18,7 +18,7 @@
         </div>
         <div class="form-login" id="logInForm"> 
             <form>
-                <input placeholder="E-mail" id="email">
+                <input placeholder="E-mail" id="email" onfocusout="emailHandler(this)" exclude>
                 <div class="remark">
                     Это обязательное поле.
                 </div>
@@ -47,15 +47,15 @@
                 <div class="remark">
                     Это обязательное поле.
                 </div>
-                <input placeholder="E-mail" id="emailReg">
+                <input placeholder="E-mail" id="emailReg" onfocusout="emailHandler(this)" exclude>
                 <div class="remark">
                     Это обязательное поле.
                 </div>
-                <input placeholder="Пароль" type="password" id="password" onfocusout="repeatPassCheck()" repeat>
+                <input placeholder="Пароль" type="password" id="password" onfocusout="repeatPassCheck()" exclude>
                 <div class="remark">
                     Это обязательное поле.
                 </div>
-                <input placeholder="Повторите пароль" type="password" id="passwordRepeat" onfocusout="repeatPassCheck()" repeat>
+                <input placeholder="Повторите пароль" type="password" id="passwordRepeat" onfocusout="repeatPassCheck()" exclude>
                 <div class="remark">
                     Это обязательное поле.
                 </div>

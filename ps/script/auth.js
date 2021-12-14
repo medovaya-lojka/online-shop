@@ -1,14 +1,39 @@
 const EYE_OPEN_ICON = "";
 const EYE_CLOSED_ICON = "";
+const redColor = "rgb(243, 17, 17)";
+const greenColor = "rgb(29, 255, 57)";
+const requiredCaption = "Это обязательное поле.";
+const redBorder = `1px ${redColor} solid`;
 
 window.addEventListener('load', () => {
     document.getElementById("container").querySelectorAll("input").forEach((item) => {
-        if (!item.attributes.repeat) {
+        if (!item.attributes.exclude) {
             item.addEventListener("change", inputHandler);
             item.addEventListener("focusout", inputHandler);
         }
     })
 })
+
+const emailHandler = (e) => {
+    const emailRem = e.nextSibling.nextSibling;
+    if (!e.value) {
+        emailRem.style.visibility = "visible";
+        e.style.borderBottom = redBorder;
+        emailRem.innerHTML = requiredCaption;
+    } else if (!validateEmail(e.value)) {
+        emailRem.style.visibility = "visible";
+        e.style.borderBottom = redBorder;
+        emailRem.innerHTML = "Неправильный E-mail";
+    } else {
+        emailRem.style.visibility = "hidden";
+        e.style.borderBottom = "1px rgb(156, 156, 156) solid";
+    }
+}
+
+const validateEmail = (email) => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
 
 const closeModal = () => {
     document.getElementById("modalContainer").style.display = 'none';
@@ -23,10 +48,6 @@ const repeatPassCheck = () => {
     const firstInp = document.getElementById("password");
     const secondRem = secondInp.nextSibling.nextSibling;
     const firstRem = firstInp.nextSibling.nextSibling;
-    const redColor = "rgb(243, 17, 17)";
-    const greenColor = "rgb(29, 255, 57)";
-    const requiredCaption = "Это обязательное поле.";
-    const redBorder = `1px ${redColor} solid`;
     const greenBorder = `1px ${greenColor} solid`;
     if (!firstInp.value && !secondInp.value) {
         secondRem.style.visibility = "visible";
