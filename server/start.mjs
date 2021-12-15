@@ -15,7 +15,7 @@ function startServer(port) {
         app.use(express.static(path.join(__dirname, '../ps')));
         app.use(bodyParser.urlencoded({ extended: false }));
         app.use(bodyParser.json());
-        app.listen(port, () => console.log("server started"));
+        app.listen(port, () => console.log('server started'));
         return app;
 }
 

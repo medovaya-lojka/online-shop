@@ -1,5 +1,5 @@
-import { startServer } from "./start.mjs";
-import { Database } from "./db.mjs";
+import { startServer } from './start.mjs';
+import { Database } from './db.mjs';
 
 const PORT = 9000;
 const app = startServer(PORT);
