@@ -56,6 +56,7 @@ const openModal = (e, id) => {
     document.getElementById(id).style.display = 'flex';
     if (e) {
         currentModalId = e.id;
+        document.getElementById('picURL').focus();
     }
 }
 
@@ -93,11 +94,8 @@ window.addEventListener('load', () => {
 })
 
 const sizeChange = (element) => {
-    if (element.classList.contains('sizeValueActive')) {
-        let elIndex = element.id.split('sizeQuantity')[1];
-        sizeList[elIndex] = element.value;
-    }
-
+    let elIndex = element.id.split('sizeQuantity')[1];
+    sizeList[elIndex] = element.value;
 }
 
 const sizeButtonPick = (target) => {
@@ -165,14 +163,16 @@ const cleanForm = () => {
     document.getElementById('adminPass').value = '';
     document.getElementById('name').value = '';
     document.getElementById('section').value = '1';
-    document.getElementById('category').value = '1';
+    document.getElementById('category').value = '0';
     document.getElementById('description').value = '';
     document.getElementById('composition').value = '';
     document.getElementById('colorName').value = '';
     document.getElementById('color').value = '#ffffff';
+    document.getElementById('price').value = '';
     for (let i = 0; i < sizeCount; i++) {
         document.getElementById(`sizeButton${i}`).classList.remove('sizeValueActive');
         document.getElementById(`sizeQuantity${i}`).value = '';
+        document.getElementById(`sizeQuantity${i}`).disabled = true;
     }
     for (let i = 1; i <= LAST_ICON_ID; i++) {
         document.getElementById(`iconWash${i}`).classList.remove('iconWashActive');
@@ -183,6 +183,7 @@ const cleanForm = () => {
     }
     imageList = [];
     buttonCounter = 0;
+    copyAddButton();
 }
 
 const checkFields = () => {
@@ -205,6 +206,9 @@ const checkFields = () => {
         return false;
     }
     if (!document.getElementById('colorName').value) {
+        return false;
+    }
+    if (!document.getElementById('price').value) {
         return false;
     }
     return true;

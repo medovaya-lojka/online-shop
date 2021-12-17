@@ -31,15 +31,16 @@ const getRandomInRange = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-app.post('/setPosition', (req, res) => {
+app.post('/setPosition', async (req, res) => {
     let isIdValid = false;
     let randId;
     while (!isIdValid) {
         randId = getRandomInRange(1000000, 10000000);
-        if (!db.getPosition(randId)) {
+        if (!(await db.getPosition(randId))) {
             isIdValid = true;
         }
     }
+    console.log(true)
     req.body.id = randId;
     db.push('positions', req.body);
     res.send({success: true, id: randId});
