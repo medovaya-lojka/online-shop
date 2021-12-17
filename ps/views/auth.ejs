@@ -31,12 +31,12 @@
                 <div class="remark">
                     Это обязательное поле.
                 </div>
-                <div class="auth-button">
+                <div class="auth-button" onclick="logInButton()">
                     Войти
                 </div>
             </form>
             <div class="forgot-password-container">
-                <div class="forgot-password-button" onclick="openModal()">
+                <div class="forgot-password-button" onclick="openModal('modalContainer')">
                     Забыли пароль?
                 </div>
             </div>
@@ -65,17 +65,40 @@
             </form>
         </div>
    </div> 
-   <div class="modal-container" id="modalContainer" onmousedown="closeModal()">
-    <div class="modal" id="modal">
-        <div class="cross-button" onclick="closeModal()"></div>
-        <div class="modal-header">Восстановить пароль</div>
-        <div class="modal-text">На вашу почту будет направлено письмо с инструкцией</div>
-        <input placeholder="E-mail" class="modal-description" id="picURL"></input>
-        <div class="modal-container-add-button">
-            <div class="modal-add-button" onclick="modalConfirm()">
-                Отправить
+   <div class="modal-container" id="modalContainer" onmousedown="closeModal('modalContainer')">
+        <div class="modal" id="modal">
+            <div class="cross-button" onclick="closeModal('modalContainer')"></div>
+            <div class="modal-header">Восстановить пароль</div>
+            <div class="modal-text">На вашу почту будет направлено письмо с инструкцией</div>
+            <input placeholder="E-mail" class="modal-description"></input>
+            <div class="modal-container-add-button">
+                <div class="modal-add-button" onclick="modalConfirm()">
+                    Отправить
+                </div>
             </div>
-        </div>
-    </div>  
-</div>
+        </div>  
+    </div>
+    <div class="modal-container" id="modalContainerFillError" onmousedown="closeModal('modalContainerFillError')">
+        <div class="modal" id="modalFillError">
+            <div class="cross-button" onclick="closeModal('modalContainerFillError')"></div>
+            <div class="modal-header">Заполните все поля.</div>
+            <div class="modal-container-add-button">
+                <div class="modal-add-button" onclick="closeModal('modalContainerFillError')">
+                    Ок
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div class="modal-container" id="modalContainerError" onmousedown="closeModal('modalContainerError')">
+        <div class="modal" id="modalError">
+            <div class="cross-button" onclick="closeModal('modalContainerError')"></div>
+            <div class="modal-header">Неверный логин или пароль!</div>
+            <div class="modal-text">Проверьте правильность ввода или <a href="#" onclick="closeModal('modalContainerError');switchForm('register')">зарегистрируйтесь</a></div>
+            <div class="modal-container-add-button">
+                <div class="modal-add-button" onclick="closeModal('modalContainerError')">
+                    Ок
+                </div>
+            </div>
+        </div>  
+    </div>
 </body>

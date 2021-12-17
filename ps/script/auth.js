@@ -4,8 +4,23 @@ const redColor = 'rgb(243, 17, 17)';
 const greenColor = 'rgb(29, 255, 57)';
 const requiredCaption = 'Это обязательное поле.';
 const redBorder = `1px ${redColor} solid`;
+const loginList = {
+    email: '',
+    password: ''
+};
 
 window.addEventListener('load', () => {
+    document.getElementById('modal').addEventListener('mousedown', (e) => {
+        e.stopPropagation();
+    });
+
+    document.getElementById('modalFillError').addEventListener('mousedown', (e) => {
+        e.stopPropagation();
+    });
+
+    document.getElementById('modalError').addEventListener('mousedown', (e) => {
+        e.stopPropagation();
+    });
     document.getElementById('container').querySelectorAll('input').forEach((item) => {
         if (!item.attributes.exclude) {
             item.addEventListener('change', inputHandler);
@@ -35,12 +50,12 @@ const validateEmail = (email) => {
     return re.test(String(email).toLowerCase());
 }
 
-const closeModal = () => {
-    document.getElementById('modalContainer').style.display = 'none';
+const closeModal = (id) => {
+    document.getElementById(id).style.display = 'none';
 }
 
-const openModal = () => {
-    document.getElementById('modalContainer').style.display = 'flex';
+const openModal = (id) => {
+    document.getElementById(id).style.display = 'flex';
 }
 
 const repeatPassCheck = () => {
@@ -144,5 +159,22 @@ const showPassword = () => {
         document.getElementById('iconEye').innerHTML = EYE_OPEN_ICON;
         document.getElementById('passwordInp').type = 'password';
     }
+}
+
+let servResp = 0;
+const logInButton = () => {
+    if (!document.getElementById('email').value || !document.getElementById('passwordInp').value) {
+        openModal('modalContainerFillError');
+    } else {
+        loginList['email'] = document.getElementById('email').value;
+        loginList['password'] = document.getElementById('passwordInp').value;
+        console.log(loginList);
+        if (servResp === 1) {
+            console.log('Todo: Переход на страницу профиля');
+        } else if (servResp === 0) {
+            openModal('modalContainerError');
+        }
+    }
+
 }
 
