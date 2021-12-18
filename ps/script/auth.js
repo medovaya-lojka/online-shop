@@ -9,16 +9,23 @@ const loginList = {
     password: ''
 };
 
+const registerList = {
+    name: '',
+    email: '',
+    password: ''
+};
+
 window.addEventListener('load', () => {
     document.getElementById('modal').addEventListener('mousedown', (e) => {
         e.stopPropagation();
     });
-
     document.getElementById('modalFillError').addEventListener('mousedown', (e) => {
         e.stopPropagation();
     });
-
     document.getElementById('modalError').addEventListener('mousedown', (e) => {
+        e.stopPropagation();
+    });
+    document.getElementById('modalErrorRegister').addEventListener('mousedown', (e) => {
         e.stopPropagation();
     });
     document.getElementById('container').querySelectorAll('input').forEach((item) => {
@@ -162,6 +169,7 @@ const showPassword = () => {
 }
 
 let servResp = 0;
+
 const logInButton = () => {
     if (!document.getElementById('email').value || !document.getElementById('passwordInp').value) {
         openModal('modalContainerFillError');
@@ -176,5 +184,36 @@ const logInButton = () => {
         }
     }
 
+}
+
+const checkRegisterFields = () => {
+    if (!document.getElementById('name').value) {
+        return false;
+    }
+    if (!document.getElementById('emailReg').value) {
+        return false;
+    }
+    if (!document.getElementById('password').value) {
+        return false;
+    }
+    if (!document.getElementById('passwordRepeat').value) {
+        return false;
+    }
+    return true;
+}
+
+const registerButton = () => {
+    if (!checkRegisterFields()) {
+        openModal('modalContainerFillError');
+    } else {
+        registerList[name] = document.getElementById('name').value;
+        registerList[email] = document.getElementById('emailReg').value;
+        registerList[password] = document.getElementById('password').value;
+        if(servResp === 1) {
+            console.log('Todo: Переход на страницу профиля');
+        } else if(servResp === 0) {
+            openModal('modalContainerErrorRegister')
+        }
+    }
 }
 
