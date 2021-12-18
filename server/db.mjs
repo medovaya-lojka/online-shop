@@ -36,6 +36,53 @@ class Database {
         return curItem;
     }
 
+    findUser(email) {
+        let curItem;
+        this.db.data.users.forEach((item) => {
+            if (item.email === email) {
+                curItem = item;
+            }
+        })
+        return curItem;
+    }
+
+    findUserBySessionId(sessionId) {
+        let curItem;
+        this.db.data.users.forEach((item) => {
+            if (item.sessionId === sessionId) {
+                curItem = item;
+            }
+        })
+        return curItem;
+    }
+
+    isAdminSessionValid(sessionId) {
+        if (this.isValidSession(sessionId)) {
+            return this.findUserBySessionId(sessionId).isAdmin;
+        }
+        return false;
+    }
+
+    isValidSession(sessionId) {
+        let result = false;
+        this.db.data.users.forEach((item) => {
+            if (item.sessionId === sessionId) {
+                result = true;
+            }
+        })
+        return result;
+    }
+
+    async changeSessionIdToUser(email, sessionId) {
+        this.db.data.positions.forEach((item) => {
+            if (item.email === email) {
+                item.sessionId = sessionId;
+            }
+        })
+        await this.db.write();
+        return true;
+    }
+
     async getData(target) {
         return this.db.data[target];
     }
