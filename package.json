@@ -14,7 +14,8 @@
     ]
   },
   "scripts": {
-    "dev": "nodemon server/server.mjs"
+    "dev": "nodemon server/server.mjs",
+    "start": "node server/server.mjs"
   },
   "devDependencies": {
     "cors": "^2.8.5"
