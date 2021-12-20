@@ -187,6 +187,16 @@ body {
     background-color: rgb(56, 56, 56);
 }
 
+.auth-link {
+    color: rgb(77, 77, 77); 
+}
+
+.auth-link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: black;
+}
+
 @font-face {
     font-family: Icons;
     src: url("fonts/font.woff") format("woff")

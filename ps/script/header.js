@@ -13,5 +13,10 @@ const toggleSearch = () => {
         document.getElementById('searchContainer').style.display = 'none';
         document.getElementById('sectionsContainer').style.display = 'flex';
     }
-   
 }
+
+window.addEventListener('load', () => {
+    if (isAuth) {
+        document.getElementById('titleProfile').innerHTML = 'Личный кабинет';
+    }
+})

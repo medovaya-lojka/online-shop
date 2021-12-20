@@ -83,10 +83,10 @@ const getRandSessionId = () => {
 const SECRET_KEY = 'testSecretKey';
 app.post('/register', async (req, res) => {
     if (await db.findUser(req.body.email)) {
-        return {
+        res.send({
             success: false,
             error: 'user already registered'
-        }
+        });
     }
     req.body.password = CryptoJS.encrypt(req.body.password, SECRET_KEY).toString();
     req.body.lastSessionId = getRandSessionId();
@@ -98,7 +98,7 @@ const decryptUserPass = (cipherText) => {
     return enc.stringify(CryptoJS.decrypt(cipherText, SECRET_KEY));
 }
 
-app.post('login', async (req, res) => {
+app.post('/login', async (req, res) => {
     let curUserData = await db.findUser(req.body.email);
     if (!curUserData) {
         res.send({
@@ -121,7 +121,8 @@ app.post('login', async (req, res) => {
         await db.changeSessionIdToUser(curUserData.email, newSessId);
         res.send({
             success: true,
-            sessionId: newSessId
+            sessionId: newSessId,
+            name: curUserData.name
         });
     }
 })

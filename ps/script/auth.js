@@ -172,16 +172,22 @@ let servResp = 0;
 
 const logInButton = () => {
     if (!document.getElementById('email').value || !document.getElementById('passwordInp').value) {
+        document.getElementById('modalHeaderErrorText').innerHTML = 'Заполните все поля.';
         openModal('modalContainerFillError');
     } else {
         loginList['email'] = document.getElementById('email').value;
         loginList['password'] = document.getElementById('passwordInp').value;
         console.log(loginList);
-        if (servResp === 1) {
-            console.log('Todo: Переход на страницу профиля');
-        } else if (servResp === 0) {
-            openModal('modalContainerError');
-        }
+        set('/login', loginList).then((data) => {
+            console.log(data)
+            if (data.success) {
+                console.log('Todo: Переход на страницу профиля');
+                setCookie('sessionId', data.sessionId);
+                setCookie('name', data.name);
+            } else {
+                openModal('modalContainerError');
+            }
+        });
     }
 
 }
@@ -204,16 +210,39 @@ const checkRegisterFields = () => {
 
 const registerButton = () => {
     if (!checkRegisterFields()) {
+        document.getElementById('modalHeaderErrorText').innerHTML = 'Заполните все поля.';
+        openModal('modalContainerFillError');
+    } else if(!validateEmail(email)) {
+        document.getElementById('modalHeaderErrorText').innerHTML = 'Неправильный E-mail.';
+        openModal('modalContainerFillError');
+    } else if (document.getElementById('password').value !== document.getElementById('passwordRepeat').value) {
+        document.getElementById('modalHeaderErrorText').innerHTML = 'Пароли не совпадают.';
         openModal('modalContainerFillError');
     } else {
-        registerList[name] = document.getElementById('name').value;
-        registerList[email] = document.getElementById('emailReg').value;
-        registerList[password] = document.getElementById('password').value;
-        if(servResp === 1) {
-            console.log('Todo: Переход на страницу профиля');
-        } else if(servResp === 0) {
-            openModal('modalContainerErrorRegister')
-        }
+        registerList['name'] = document.getElementById('name').value;
+        registerList['email'] = document.getElementById('emailReg').value;
+        registerList['password'] = document.getElementById('password').value;
+        set('/register', registerList).then((data) => {
+            console.log(data)
+            if (data.success) {
+                console.log('Todo: Переход на страницу профиля');
+            } else {
+                openModal('modalContainerErrorRegister');
+            }
+        });
     }
+}
+
+async function set(url, params) {
+    const rawResponse = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(params)
+    });
+
+    return await rawResponse.json();
 }
 

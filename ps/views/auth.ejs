@@ -1,5 +1,6 @@
 <header>
     <link rel="stylesheet" href="style/auth.css">
+    <script src="script/authController.js"></script>
     <script src="script/auth.js"></script>
     <title>
         Авторизация A&M
@@ -81,7 +82,7 @@
     <div class="modal-container" id="modalContainerFillError" onmousedown="closeModal('modalContainerFillError')">
         <div class="modal" id="modalFillError">
             <div class="cross-button" onclick="closeModal('modalContainerFillError')"></div>
-            <div class="modal-header">Заполните все поля.</div>
+            <div class="modal-header" id="modalHeaderErrorText">Заполните все поля.</div>
             <div class="modal-container-add-button">
                 <div class="modal-add-button" onclick="closeModal('modalContainerFillError')">
                     Ок
@@ -93,7 +94,7 @@
         <div class="modal" id="modalError">
             <div class="cross-button" onclick="closeModal('modalContainerError')"></div>
             <div class="modal-header">Неверный логин или пароль!</div>
-            <div class="modal-text">Проверьте правильность ввода или <a href="#" onclick="closeModal('modalContainerError');switchForm('register')">зарегистрируйтесь</a>.</div>
+            <div class="modal-text">Проверьте правильность ввода или <a class="auth-link" href="#" onclick="closeModal('modalContainerError');switchForm('register')">зарегистрируйтесь</a>.</div>
             <div class="modal-container-add-button">
                 <div class="modal-add-button" onclick="closeModal('modalContainerError')">
                     Ок
@@ -105,10 +106,10 @@
         <div class="modal" id="modalErrorRegister">
             <div class="cross-button" onclick="closeModal('modalContainerErrorRegister')"></div>
             <div class="modal-header">Такой пользователь уже существует.</div>
-            <div class="modal-text">Проверьте правильность ввода или перейдите на <a href="#" onclick="closeModal('modalContainerErrorRegister');switchForm('logIn')">страницу входа</a>.</div>
-            <div class="modal-text">Если забыли пароль, можете его <a href="#" onclick="closeModal('modalContainerErrorRegister');openModal('modalContainer')">восстановить</a>.</div>
+            <div class="modal-text">Проверьте правильность ввода или перейдите на <a class="auth-link" href="#" onclick="closeModal('modalContainerErrorRegister');switchForm('logIn')">страницу входа</a>.</div>
+            <div class="modal-text">Если забыли пароль, можете его <a class="auth-link" href="#" onclick="closeModal('modalContainerErrorRegister');openModal('modalContainer')">восстановить</a>.</div>
             <div class="modal-container-add-button">
-                <div class="modal-add-button" onclick="closeModal('modalContainerError')">
+                <div class="modal-add-button" onclick="closeModal('modalContainerErrorRegister')">
                     Ок
                 </div>
             </div>
