@@ -212,7 +212,7 @@ const registerButton = () => {
     if (!checkRegisterFields()) {
         document.getElementById('modalHeaderErrorText').innerHTML = 'Заполните все поля.';
         openModal('modalContainerFillError');
-    } else if(!validateEmail(email)) {
+    } else if(!validateEmail(document.getElementById('emailReg').value)) {
         document.getElementById('modalHeaderErrorText').innerHTML = 'Неправильный E-mail.';
         openModal('modalContainerFillError');
     } else if (document.getElementById('password').value !== document.getElementById('passwordRepeat').value) {

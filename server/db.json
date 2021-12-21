@@ -665,5 +665,17 @@
     "xl"
   ],
   "users": [
+    {
+      "name": "wefed",
+      "email": "test@test.ru",
+      "password": "U2FsdGVkX19e5gatUXgs48Cfj5MCMX9TJcCeVmtN0uE=",
+      "lastSessionId": "fnavwpjhj"
+    },
+    {
+      "name": "wefed",
+      "email": "test@test.ru",
+      "password": "U2FsdGVkX19T1KSLi/cvp7NoM0bpQfPtxyLHbIwAnRM=",
+      "lastSessionId": "o9gnc32qz"
+    }
   ]
 }
