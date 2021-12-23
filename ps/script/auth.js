@@ -134,19 +134,16 @@ const inputHandler = (event) => {
     }
 }
 
-const switchForm = (n) => {
-    if (n === 'logIn') {
-        document.getElementById('registerForm').style.display = 'none';
-        document.getElementById('logInForm').style.display = 'block';
-        document.getElementById('logInSwitch').classList.add('form-switch-active');
-        document.getElementById('registerSwitch').classList.remove('form-switch-active');
+const switchForm = (activeForm) => {
+    let inactiveForm = 'logIn';
+    if (activeForm === inactiveForm) {
+        inactiveForm = 'register';
     }
-    if (n === 'register') {
-        document.getElementById('logInForm').style.display = 'none';
-        document.getElementById('registerForm').style.display = 'block';
-        document.getElementById('registerSwitch').classList.add('form-switch-active');
-        document.getElementById('logInSwitch').classList.remove('form-switch-active');
-    }
+
+    document.getElementById(`${inactiveForm}Form`).style.display = 'none';
+    document.getElementById(`${activeForm}Form`).style.display = 'block';
+    document.getElementById(`${activeForm}Switch`).classList.add('form-switch-active');
+    document.getElementById(`${inactiveForm}Switch`).classList.remove('form-switch-active');
 }
 
 const passwordHandler = (e) => {
