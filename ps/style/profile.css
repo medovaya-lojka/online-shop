@@ -1,3 +1,76 @@
+
+
 .profile-container {
+    font-family: Myfont-Light, sans-serif;
     margin-top: 200px;
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    align-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.profile-greeting {
+    width: 40%;
+    font-size: 20px;
+}
+
+.name {
+    font-family: Myfont-Bold, sans-serif;
+}
+
+.profile-remark-greeting {
+    width: 25%;
+    font-size: 15px !important;
+}
+
+.profile-section-conainer {
+    width: 40%;
+    text-align: center;
+    margin-top: 32px;
+}
+
+.profile-section {
+    font-size: 14px;
+    font-family: Myfont-Bold, sans-serif;
+}
+
+.profile-remark, .profile-remark-greeting {
+    font-size: 13px;
+    font-family: Myfont-Light, sans-serif;
+    margin-bottom: 12px;
+}
+
+.profile-section-container-help {
+    border-top: 1px black solid;
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+    margin-top: 24px;
+    padding-top: 24px;
+}
+
+.profile-section-container-help div {
+    text-align: justify;
+}
+
+.profile-section-container-help > div {
+    padding: 0 12px;
+    width: 40%
+}
+
+.log-of-button {
+    width: 5%;
+    color: rgb(255, 255, 255);
+    margin-top: 24px;
+    text-align: center;
+    padding: 5px 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color:#000000;
+}
+
+.log-of-button:hover {
+    background-color: rgb(56, 56, 56);
 }
