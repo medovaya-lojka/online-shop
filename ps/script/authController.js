@@ -27,6 +27,12 @@ const setCookie = (name, value, options = {}) => {
     document.cookie = updatedCookie;
 }
 
+const deleteCookie = (name) => {
+  setCookie(name, "", {
+    'max-age': -1
+  })
+}
+
 if (getCookie('sessionId')) {
     window.isAuth = true;
 }

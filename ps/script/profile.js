@@ -4,3 +4,9 @@ window.addEventListener('load', () => {
     }
 })
 
+const logOut = () => {
+    deleteCookie('name');
+    deleteCookie('sessionId');
+    isAuth = false;
+    window.location.href = "/";
+}

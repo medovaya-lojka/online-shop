@@ -2,13 +2,19 @@
 
 .profile-container {
     font-family: Myfont-Light, sans-serif;
-    margin-top: 200px;
+    margin-top: 160px;
     text-align: center;
     flex-direction: column;
     display: flex;
     align-content: center;
     width: 100%;
     align-items: center;
+}
+
+.email-warning {
+    width: 40%;
+    color: rgb(206, 8, 8);
+    margin-bottom: 24px;
 }
 
 .profile-greeting {

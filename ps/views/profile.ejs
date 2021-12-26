@@ -9,6 +9,9 @@
 <%- include('header') %>
 <body>
     <div class="profile-container">
+        <div class="email-warning" id="emailWarning">
+            Внимание! E-mail не подтвержден. На вашу почту было направленно письмо. Чтобы подтвердить e-mail, пройдите по ссылке в письме.
+        </div>
         <div class="profile-greeting">
             Здраствуйте, <span class="name" id="name">vbbb</span>!
         </div>
@@ -35,7 +38,7 @@
                 Войдите в Избранное, чтобы просмотреть понравившиеся модели.
             </div>
         </div>
-        <div class="log-of-button">
+        <div class="log-of-button" onclick="logOut()">
             Выйти
         </div>
         <div class="profile-section-container-help">
