@@ -26,10 +26,18 @@ body {
     width: 100%;
 }
 
+.right-panel {
+    width: 30%;
+    margin-right: 20px;
+    padding-left: 60px
+}
+
 .product-actions {
     width: 30%;
     padding-left: 60px;
     margin-right: 20px;
+    position: fixed;
+    right: 0;
 }
 
 .container-info {
@@ -89,6 +97,33 @@ body {
     padding-left: 10%;
 }
 
+.description-header {
+    margin-bottom: 24px;
+}
+
+.section {
+    margin-top: 24px;
+}
+
 .properties {
     font-weight: 800;
+}
+
+.wash-symbols {
+    line-height: 30px;
+    display: flex;
+}
+
+.wash-symbols-container {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.wash-symbols-container > div {
+    display: flex;
+}
+
+.wash-symbol img {
+    width: 30px;
+    height: 30px;
 }

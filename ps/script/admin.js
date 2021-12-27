@@ -218,10 +218,12 @@ const sendData = () => {
     if (checkFields()) {
         const positionData = {
             name: document.getElementById('name').value,
+            price: document.getElementById('price').value,
             section: document.getElementById('section').value,
             category: document.getElementById('category').value,
             sizeList: sizeList,
             description: document.getElementById('description').value,
+            composition: document.getElementById('composition').value,
             washSymbolsList: washSymbolsList,
             imageList: imageList,
             colorName: document.getElementById('colorName').value,
