@@ -131,9 +131,15 @@ body {
 }
 
 .size-button {
-    width: 100%;
+    width: calc(100%-20px);
     height: 22px;
     padding: 10px;
+    display: none;
+    text-transform: uppercase;
+}
+
+.size-button:hover {
+    background-color: rgb(235, 235, 235);
 }
 
 .product-properties {

@@ -58,7 +58,7 @@
             <div class="button-container">
                 <div class="size">
                     <div class="size-container">
-                        <div class="size-main-container">
+                        <div class="size-main-container" id="sizeMainContainer">
                             Выбрать размер
                             <div class="choice-button">
                                 
@@ -70,10 +70,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- <select class="size-button">  
-                        <option value="1">Выбрать размер</option>
-                    </select> -->
                 </div>
                 <div class="container-add">
                     <div class="add-button">
@@ -89,3 +85,6 @@
         </div>
     </div>
 </div>
+<script>
+    let product = <%-JSON.stringify(product)%>;
+</script>
