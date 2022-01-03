@@ -91,6 +91,7 @@ app.post('/register', async (req, res) => {
             success: false,
             error: 'user already registered'
         });
+        return;
     }
     req.body.password = CryptoJS.encrypt(req.body.password, SECRET_KEY).toString();
     req.body.lastSessionId = getRandSessionId();
@@ -101,6 +102,15 @@ app.post('/register', async (req, res) => {
 const decryptUserPass = (cipherText) => {
     return enc.stringify(CryptoJS.decrypt(cipherText, SECRET_KEY));
 }
+
+app.post('/changeFav', async (req, res) => {
+    if(req.body.operation === "delete") {
+        this.db.addFavToUserBySessionId(req.body.sessionId, req.body.productId);
+    } else {
+        this.db.addFavToUserBySessionId(req.body.sessionId, req.body.productId);
+    }
+})
+
 
 app.post('/login', async (req, res) => {
     let curUserData = await db.findUser(req.body.email);

@@ -73,6 +73,43 @@ class Database {
         return result;
     }
 
+    async removeFavToUserBySessionId(sessionId, productId) {
+        let isChanged = false;
+        this.db.data.users.forEach((user, index) => {
+            if (user.lastSessionId === sessionId) {
+                if(!this.db.data.users[index].favList) {
+                    return;
+                }
+                this.db.data.users[index].favList = this.db.data.users[index].favList.filter(item => {
+                    return item !== productId;
+                })
+                isChanged = true;
+            }
+        });
+        if(isChanged) {
+            return this.db.write();
+        }
+    }
+
+
+    addFavToUserBySessionId(sessionId, productId) {
+        let isChanged = false;
+        this.db.data.users.forEach((user, index) => {
+            if (user.lastSessionId === sessionId) {
+                if(!this.db.data.users[index].favList) {
+                    this.db.data.users[index].favList = [];
+
+                }
+                this.db.data.users[index].favList.push(productId);
+
+                isChanged = true;
+            }
+        });
+        if(isChanged) {
+            this.db.write();
+        }
+    }
+
     async changeSessionIdToUser(email, sessionId) {
         this.db.data.positions.forEach((item) => {
             if (item.email === email) {

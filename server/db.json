@@ -655,6 +655,65 @@
       "color": "#cecfca",
       "adminPass": "фывыфв",
       "id": 4070130
+    },
+    {
+      "name": "test",
+      "price": "999111999",
+      "section": "1",
+      "category": "2",
+      "sizeList": [
+        "12",
+        "12",
+        "12",
+        "12"
+      ],
+      "description": "описание",
+      "composition": "состав",
+      "washSymbolsList": [
+        null,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true
+      ],
+      "imageList": [
+        "нету",
+        "нету"
+      ],
+      "colorName": "цвет красный",
+      "color": "#ff0000",
+      "adminPass": "asdasd",
+      "id": 1728104
     }
   ],
   "sizes": [
@@ -669,7 +728,11 @@
       "name": "wefed",
       "email": "test@test.ru",
       "password": "U2FsdGVkX19e5gatUXgs48Cfj5MCMX9TJcCeVmtN0uE=",
-      "lastSessionId": "fnavwpjhj"
+      "lastSessionId": "fnavwpjhj",
+      "favList": [
+        "123",
+        "1728104"
+      ]
     },
     {
       "name": "wefed",
