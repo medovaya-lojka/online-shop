@@ -1,4 +1,5 @@
 let sizeCount = 0;
+let isSizeOpened = false;
 
 const sizeFill = () => {
     fetch('/getSizeList')
@@ -18,22 +19,40 @@ const sizeFill = () => {
             })
             sizeCount = data.length;
         });
-    document.getElementById('sizeMainContainer').style.borderBottom  = 'none';
-
 }
 
-const openSize = () => {
-    document.getElementById('sizeDropdownContainer').style.display = 'block';
-    document.getElementById('sizeMainContainer').style.borderBottom  = 'none';
+const sizeSwitchHandler = () =>{
+    if (isSizeOpened) {
+        document.getElementById('sizeDropdownContainer').style.display = 'none';
+        document.getElementById('sizeMainContainer').style.borderBottom  = '1px black solid';
+        isSizeOpened = false;
+        document.getElementById('iconChoiceButton').innerHTML = '';
+    } else {
+        document.getElementById('sizeDropdownContainer').style.display = 'block';
+        document.getElementById('sizeMainContainer').style.borderBottom  = 'none';
+        isSizeOpened = true;
+        document.getElementById('iconChoiceButton').innerHTML = '';
+    }
 }
 
-const closeSize = () => {
-    document.getElementById('sizeDropdownContainer').style.display = 'none';
-    document.getElementById('sizeMainContainer').style.borderBottom  = '1px black solid';
+const sizePickHandler = (event) => {
+    document.getElementById('sizeField').innerHTML = event.innerHTML.toUpperCase();
+    sizeSwitchHandler();
 }
-
-
 
 window.addEventListener('load', () => {
     sizeFill();
 })
+
+const openFullImg = (id) => {
+    document.getElementById('fullModal').style.display = 'block';
+    document.getElementById('fullImg').src = product.imageList[id];
+    document.getElementsByTagName('body')[0].style.overflow = 'hidden';
+} 
+
+const closeFullImg = () => {
+    document.getElementById('fullModal').style.display = 'none';
+    document.getElementsByTagName('body')[0].style.overflow = 'auto';
+}
+
+  

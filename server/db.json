@@ -739,6 +739,12 @@
       "email": "test@test.ru",
       "password": "U2FsdGVkX19T1KSLi/cvp7NoM0bpQfPtxyLHbIwAnRM=",
       "lastSessionId": "o9gnc32qz"
+    },
+    {
+      "name": "test",
+      "email": "test2@test2.ru",
+      "password": "U2FsdGVkX18ps7XJpfLvXTUNKPQPS+RFe2+7fXZ9Abs=",
+      "lastSessionId": "huq949lpp2i"
     }
   ]
 }

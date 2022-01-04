@@ -1,14 +1,25 @@
 <link rel="stylesheet" href="style/productPage.css">
 <script src="script/productPage.js"></script>
 <%- include('header') %>
+<head>
+    <title>
+        <%- product.name %> - A&M
+    </title>
+</head>
 <div class="product-page"> 
     <div class="product-details">
         <div class="product-details-pictures">
             <div class="picture-button">
-                <img src="<%- product.imageList[0] %>">
+                <img id="img1" src="<%- product.imageList[0] %>">
+                <div class="full-button" onclick="openFullImg(0)">
+                    
+                </div>
             </div>
             <div class="picture-button">
-                <img src="<%- product.imageList[1] %>">
+                <img id="img2" src="<%- product.imageList[1] %>">
+                <div class="full-button" onclick="openFullImg(1)">
+                    
+                </div>
             </div>
         </div>
         <div class="product-properties">
@@ -58,14 +69,14 @@
             <div class="button-container">
                 <div class="size">
                     <div class="size-container">
-                        <div class="size-main-container" id="sizeMainContainer">
-                            Выбрать размер
-                            <div class="choice-button">
+                        <div class="size-main-container" id="sizeMainContainer" onclick="sizeSwitchHandler()">
+                            <span id="sizeField">Выбрать размер</span>
+                            <div class="choice-button" id="iconChoiceButton">
                                 
                             </div>
                         </div>
                         <div class="size-dropdown-container" id="sizeDropdownContainer">
-                            <div class="size-button" id="sizeButton">
+                            <div class="size-button" id="sizeButton" onclick="sizePickHandler(this)">
                                 xs
                             </div>
                         </div>
@@ -84,6 +95,10 @@
             </div>
         </div>
     </div>
+</div>
+<div class="full-modal-container" id="fullModal">
+    <div class="cross-button" onclick="closeFullImg()"></div>
+    <img id="fullImg" src="<%- product.imageList[0] %>">
 </div>
 <script>
     let product = <%-JSON.stringify(product)%>;

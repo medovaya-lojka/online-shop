@@ -19,7 +19,7 @@ body {
 .picture-button {
     width: 50%;
     padding: 1px;
-    /* height:; */
+    position: relative;
 }
 
 .picture-button img {
@@ -37,6 +37,30 @@ body {
 .product-actions {
     padding-left: 60px;
     margin-right: 20px;
+}
+
+.img-magnifier-glass {
+    position: absolute;
+    border: 3px solid #000;
+    border-radius: 50%;
+    cursor: none;
+    /*Установите размер стекла лупы:*/
+    width: 100px;
+    height: 100px;
+}
+
+.full-button {
+    width: 21px;
+    height: 21px;
+    font-family: Icons;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    text-align: center;
+    font-size: 21px;
+    color: rgb(53, 53, 53);
+    cursor: pointer;
+    z-index: 10;
 }
 
 .container-info {
@@ -119,6 +143,7 @@ body {
     border-bottom: 1px black solid;
     height: fit-content;
     background-color: rgb(255, 255, 255);
+    display: none;
 }
 
 .size-main-container {
@@ -176,6 +201,35 @@ body {
 .wash-symbol img {
     width: 30px;
     height: 30px;
+}
+
+.full-modal-container {
+    z-index: 11;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    overflow: auto;
+    display: none;
+}
+
+.full-modal-container img {
+    width: 100%;
+}
+
+.cross-button {
+    font-family: Icons;
+    position: fixed;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 40px;
+}
+
+.cross-button:hover {
+    font-weight: 700;
 }
 
 @font-face {
