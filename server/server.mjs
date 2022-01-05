@@ -144,3 +144,7 @@ app.post('/login', async (req, res) => {
 app.get('/list', (req, res) => {
     res.render('goodsList');
 })
+
+app.get('/favorite', (req, res) => {
+    res.render('favoriteList');
+})

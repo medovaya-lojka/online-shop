@@ -1,0 +1,44 @@
+.main-favorite-container {
+    font-family: Myfont-Light, sans-serif;
+    margin-top: 160px;
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    align-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.header-favorite {
+    margin-bottom: 20px;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.remark-header{
+    font-size: 15px;
+    margin-bottom: 80px;
+}
+
+.name {
+    font-weight: 800;
+}
+
+.details-favorite-container {
+    display: flex;
+    width: 90%;
+    flex-wrap: wrap;
+    margin: 0 30px 50px 30px;
+}
+
+.product-container {
+    width: 25%;
+}
+
+.img-container {
+    width: 100%;
+}
+
+.img-container img {
+    width: 100%;
+}
