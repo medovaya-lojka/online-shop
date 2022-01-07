@@ -104,11 +104,27 @@ const decryptUserPass = (cipherText) => {
 }
 
 app.post('/changeFav', async (req, res) => {
+    let result;
     if(req.body.operation === "delete") {
-        this.db.addFavToUserBySessionId(req.body.sessionId, req.body.productId);
+        result = await db.removeFavToUserBySessionId(req.body.sessionId, req.body.productId);
     } else {
-        this.db.addFavToUserBySessionId(req.body.sessionId, req.body.productId);
+        result = await db.addFavToUserBySessionId(req.body.sessionId, req.body.productId);
     }
+    if (result === -1) {
+        res.send({
+            success: false
+        })
+    } else {
+        res.send({
+            success: true
+        })
+    }
+})
+
+app.get('/getFavList', async (req, res) => {
+    let favList = db.findUserBySessionId(req.query.sessionId).favList;
+    favList.map(prodId => db.getPosition(prodId));
+    res.send(favList);
 })
 
 

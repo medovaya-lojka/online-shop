@@ -106,7 +106,9 @@ class Database {
             }
         });
         if(isChanged) {
-            this.db.write();
+            return this.db.write();
+        } else {
+            return -1;
         }
     }
 
