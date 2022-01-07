@@ -51,13 +51,14 @@
     width: 100%;
     flex-wrap: wrap;
     margin: 0 0px 50px -4px;
-    justify-content: space-between
+    justify-content: flex-start;
 }
 
 .product-container {
     width: calc(25% - 8px);
     margin-bottom: 80px;
     margin-left: 8px;
+    display: none;
 }
 
 .img-container {

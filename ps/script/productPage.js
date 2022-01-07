@@ -1,5 +1,7 @@
 let sizeCount = 0;
 let isSizeOpened = false;
+let isFavoriteIconOn = false;
+let favoriteData = {};
 
 const sizeFill = () => {
     fetch('/getSizeList')
@@ -42,6 +44,11 @@ const sizePickHandler = (event) => {
 
 window.addEventListener('load', () => {
     sizeFill();
+    favoriteData = {
+        operation: 'add',
+        productId: product.id,
+        sessionId: getCookie('sessionId')
+    };
 })
 
 const openFullImg = (id) => {
@@ -55,4 +62,31 @@ const closeFullImg = () => {
     document.getElementsByTagName('body')[0].style.overflow = 'auto';
 }
 
-  
+const switchFavoriteIcon = () => {
+    isFavoriteIconOn = !isFavoriteIconOn;
+    if (isFavoriteIconOn) {
+        document.getElementById('favoriteIconOff').style.display = 'none';
+        document.getElementById('favoriteIconOn').style.display = 'block';
+        favoriteData.operation = 'add';
+        
+    } else {
+        document.getElementById('favoriteIconOff').style.display = 'block';
+        document.getElementById('favoriteIconOn').style.display = 'none';
+        favoriteData.operation = 'delete';
+    }
+    set('/changeFav', favoriteData).then((data) => {
+    });
+} 
+
+async function set(url, params) {
+    const rawResponse = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(params)
+    });
+
+    return await rawResponse.json();
+}

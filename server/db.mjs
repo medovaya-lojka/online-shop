@@ -33,7 +33,7 @@ class Database {
                 curItem = item;
             }
         })
-        return curItem;
+        return await curItem;
     }
 
     findUser(email) {
@@ -49,7 +49,7 @@ class Database {
     findUserBySessionId(sessionId) {
         let curItem;
         this.db.data.users.forEach((item) => {
-            if (item.sessionId === sessionId) {
+            if (item.lastSessionId === sessionId) {
                 curItem = item;
             }
         })

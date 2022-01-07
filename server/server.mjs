@@ -123,8 +123,12 @@ app.post('/changeFav', async (req, res) => {
 
 app.get('/getFavList', async (req, res) => {
     let favList = db.findUserBySessionId(req.query.sessionId).favList;
-    favList.map(prodId => db.getPosition(prodId));
-    res.send(favList);
+    let result = [];
+    for(let i = 0; i < favList.length; i++) {
+        let product = await db.getPosition(favList[i]);
+        result.push(product);
+    }
+    res.send(result);
 })
 
 
