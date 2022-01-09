@@ -106,7 +106,7 @@ const decryptUserPass = (cipherText) => {
 app.post('/changeFav', async (req, res) => {
     let result;
     if(req.body.operation === "delete") {
-        result = await db.removeFavToUserBySessionId(req.body.sessionId, req.body.productId);
+        result = await db.removeFavToUserBySessionId(req.body.sessionId, Number(req.body.productId));
     } else {
         result = await db.addFavToUserBySessionId(req.body.sessionId, req.body.productId);
     }
