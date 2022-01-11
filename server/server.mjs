@@ -108,7 +108,7 @@ app.post('/changeFav', async (req, res) => {
     if(req.body.operation === "delete") {
         result = await db.removeFavToUserBySessionId(req.body.sessionId, Number(req.body.productId));
     } else {
-        result = await db.addFavToUserBySessionId(req.body.sessionId, req.body.productId);
+        result = await db.addFavToUserBySessionId(req.body.sessionId, Number(req.body.productId));
     }
     if (result === -1) {
         res.send({
@@ -126,6 +126,35 @@ app.get('/getFavList', async (req, res) => {
     let result = [];
     for(let i = 0; i < favList.length; i++) {
         let product = await db.getPosition(favList[i]);
+        result.push(product);
+    }
+    res.send(result);
+})
+
+app.post('/changeCart', async (req, res) => {
+    let result;
+    if(req.body.operation === "delete") {
+        result = await db.removeProductFromUser(req.body.sessionId, Number(req.body.productId), Number(req.body.quantity));
+    } else {
+        result = await db.addProductToUser(req.body.sessionId, Number(req.body.productId), Number(req.body.quantity));
+    }
+    if (result === -1) {
+        res.send({
+            success: false
+        })
+    } else {
+        res.send({
+            success: true
+        })
+    }
+})
+
+app.get('/getCart', async (req, res) => {
+    let cart = db.findUserBySessionId(req.query.sessionId).cart;
+    let result = [];
+    for(let i = 0; i < cart.length; i++) {
+        let product = await db.getPosition(cart[i].productId);
+        product.quantity = cart[i].quantity;
         result.push(product);
     }
     res.send(result);
