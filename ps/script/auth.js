@@ -178,9 +178,9 @@ const logInButton = () => {
         set('/login', loginList).then((data) => {
             console.log(data)
             if (data.success) {
-                console.log('Todo: Переход на страницу профиля');
                 setCookie('sessionId', data.sessionId);
                 setCookie('name', data.name);
+                window.location.href = '/profile';
             } else {
                 openModal('modalContainerError');
             }
@@ -222,7 +222,9 @@ const registerButton = () => {
         set('/register', registerList).then((data) => {
             console.log(data)
             if (data.success) {
-                console.log('Todo: Переход на страницу профиля');
+                setCookie('sessionId', data.id);
+                setCookie('name', registerList['name']);
+                window.location.href = '/profile';
             } else {
                 openModal('modalContainerErrorRegister');
             }

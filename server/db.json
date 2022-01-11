@@ -744,8 +744,22 @@
       "name": "test",
       "email": "test2@test2.ru",
       "password": "U2FsdGVkX18ps7XJpfLvXTUNKPQPS+RFe2+7fXZ9Abs=",
-      "lastSessionId": "huq949lpp2i",
-      "favList": []
+      "lastSessionId": "y4t3t04i2g9",
+      "favList": [
+        1020409
+      ]
+    },
+    {
+      "name": "test)))",
+      "email": "test3@test3.ru",
+      "password": "U2FsdGVkX1/Wrq3sjEO6DlnWdlMQWCuksN3Da3Xt4f4=",
+      "lastSessionId": "6r8a9oziy14"
+    },
+    {
+      "name": "test4",
+      "email": "test4@test4.ru",
+      "password": "U2FsdGVkX18q0xm3K2Vw1QPWHKa9toK83T0Vb7yXpHE=",
+      "lastSessionId": "no5jvs3fh6j"
     }
   ]
 }

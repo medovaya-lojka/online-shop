@@ -49,6 +49,18 @@ window.addEventListener('load', () => {
         productId: product.id,
         sessionId: getCookie('sessionId')
     };
+
+    fetch(`/getFavList?sessionId=${getCookie('sessionId')}`)
+        .then(response => response.json())
+        .then((data) =>  {
+            data.forEach (item => {
+                if(item.id === product.id) {
+                    isFavoriteIconOn = true;
+                    document.getElementById('favoriteIconOff').style.display = 'none';
+                    document.getElementById('favoriteIconOn').style.display = 'block'; 
+                }
+            })
+        })
 })
 
 const openFullImg = (id) => {
