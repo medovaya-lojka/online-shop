@@ -112,6 +112,54 @@ class Database {
         }
     }
 
+    async removeProductFromUser(sessionId, productId, quantity) {
+        let isChanged = false;
+        this.db.data.users.forEach((user, index) => {
+            if (user.lastSessionId === sessionId) {
+                if(!this.db.data.users[index].cart) {
+                    return;
+                }
+                if(quantity < 1) {
+                    this.db.data.users[index].cart = this.db.data.users[index].cart.filter(item => {
+                        return item.productId !== productId;
+                    })
+                } else {
+                    for (let i = 0; i < this.db.data.users[index].cart.length; i++) {
+                        if (this.db.data.users[index].cart[i].productId === productId) {
+                            this.db.data.users[index].cart[i].quantity = quantity;
+                        }
+                    }
+                }
+
+                isChanged = true;
+            }
+        });
+        if(isChanged) {
+            return this.db.write();
+        }
+    }
+
+
+    addProductToUser(sessionId, productId, quantity) {
+        let isChanged = false;
+        this.db.data.users.forEach((user, index) => {
+            if (user.lastSessionId === sessionId) {
+                if(!this.db.data.users[index].cart) {
+                    this.db.data.users[index].cart = [];
+
+                }
+                this.db.data.users[index].cart.push({productId: productId, quantity: quantity});
+
+                isChanged = true;
+            }
+        });
+        if(isChanged) {
+            return this.db.write();
+        } else {
+            return -1;
+        }
+    }
+
     async changeSessionIdToUser(email, sessionId) {
         this.db.data.positions.forEach((item) => {
             if (item.email === email) {
