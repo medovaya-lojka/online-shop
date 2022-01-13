@@ -9,6 +9,26 @@ window.addEventListener('load', () => {
     };
 })
 
+const sizeFill = (product, productCard) => {
+    fetch('/getSizeList')
+        .then(response => response.json())
+        .then((data) => {
+            data.forEach((size, index) => {
+                const sizeButton = document.getElementById('sizeButton').cloneNode(true);
+                sizeButton.id = `sizeButton${index}`;
+                sizeButton.value = product.sizeList[index];
+                sizeButton.style.display = 'block';
+                if (product.sizeList[index] < 1) {
+                    sizeButton.innerHTML = `${size} — Нет в наличии!`;
+                } else {
+                    sizeButton.innerHTML = size;
+                }
+                productCard.querySelector('#sizeContainer').appendChild(sizeButton);
+            })
+            sizeCount = data.length;
+        });
+}
+
 const updateFavoriteListData = () => {
     fetch(`/getFavList?sessionId=${getCookie('sessionId')}`)
         .then(response => response.json())
@@ -36,12 +56,15 @@ const fillFavorite = (productList) => {
         productCard.id = `productCard${product.id}`;
         productCard.style.display = 'block';
         productCard.querySelector('#productDeleteBut').setAttribute('data-product-id', productCard.id);
-        productCard.querySelector('#shopButton')['data-product-id'] = productCard.id;
+        productCard.querySelector('#shopButton').setAttribute('data-product-id', productCard.id);
+        productCard.querySelector('#sizeContainer').setAttribute('data-product-id', productCard.id);
+        productCard.querySelector('#sizeCloseButton').setAttribute('data-product-id', productCard.id);
         productCard.querySelector('#productName').innerHTML = `${product.name}`;
         productCard.querySelector('#productPrice').innerHTML = `${product.price} руб.`;
         productCard.querySelector('#productImg').src = product.imageList[0];
         productCard.querySelector('#productLink').href = `/productPage?id=${product.id}`
         document.getElementById('detailsFavoriteContainer').appendChild(productCard);
+        sizeFill(product, productCard);
     });
 }
 
@@ -53,6 +76,16 @@ const deleteFavorite = (e) => {
     set('/changeFav', favoriteData).then((data) => {
     });
     updateFavoriteListData();
+}
+
+const shopButtonHandler = (e) => {
+    let productCard = e.attributes['data-product-id'].value;
+    document.getElementById(productCard).querySelector('#sizeContainer').style.display = 'flex';
+}
+
+const closeSizeContainer = (e) => {
+    let productCard = e.attributes['data-product-id'].value; 
+    document.getElementById(productCard).querySelector('#sizeContainer').style.display = 'none';
 }
 
 async function set(url, params) {

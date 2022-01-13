@@ -759,7 +759,10 @@
       "name": "test4",
       "email": "test4@test4.ru",
       "password": "U2FsdGVkX18q0xm3K2Vw1QPWHKa9toK83T0Vb7yXpHE=",
-      "lastSessionId": "no5jvs3fh6j"
+      "lastSessionId": "no5jvs3fh6j",
+      "favList": [
+        1020409
+      ]
     }
   ]
 }
