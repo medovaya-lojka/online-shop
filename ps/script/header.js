@@ -18,5 +18,6 @@ const toggleSearch = () => {
 window.addEventListener('load', () => {
     if (isAuth) {
         document.getElementById('titleProfile').innerHTML = 'Личный кабинет';
+        document.getElementById('authLink').href = '/profile'
     }
 })
