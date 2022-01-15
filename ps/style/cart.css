@@ -1,0 +1,106 @@
+.main-container {
+    font-family: Myfont-Light, sans-serif;
+    min-height: 100vh;
+    font-weight: normal;
+    background-color: #ffffff;
+    margin: 120px 0 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.content-container {
+    width: 50%;
+    padding-left: 24px;
+}
+
+.header-text {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+
+.product-container-main {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 50px;
+    margin-bottom: 35px;
+}
+
+.product-container {
+    display: flex;
+    justify-content: start;
+}
+
+.img-container {
+    width: 25%;
+    margin-right: 15px;
+}
+
+.img-container img {
+    width: 100%;
+}
+
+.delete-button {
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.name-product {
+    margin-bottom: 10px;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.product-remark {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.position-prise {
+    width: 20%;
+}
+
+.right-panel {
+    width: 20%;
+    padding-right: 24px;
+}
+
+.details-container {
+    padding-right: 24px;
+    position: fixed;
+    width: 20%;
+}
+
+.sum-contaiher {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 19px;
+}
+
+.sum-text {
+    font-weight: 800;
+}
+
+.delivery-contaiher {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    font-size: 16px;
+    color: rgb(61, 61, 61);
+}
+
+.shop-button {
+    height: 42px;
+    line-height: 42px;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+    background-color:#000000;
+}
+
+.shop-button:hover {
+    background-color: rgb(37, 37, 37);
+}
