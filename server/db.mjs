@@ -140,7 +140,7 @@ class Database {
     }
 
 
-    addProductToUser(sessionId, productId, quantity) {
+    addProductToUser(sessionId, productId, quantity, size) {
         let isChanged = false;
         this.db.data.users.forEach((user, index) => {
             if (user.lastSessionId === sessionId) {
@@ -148,7 +148,7 @@ class Database {
                     this.db.data.users[index].cart = [];
 
                 }
-                this.db.data.users[index].cart.push({productId: productId, quantity: quantity});
+                this.db.data.users[index].cart.push({productId: productId, quantity: quantity, size: size});
 
                 isChanged = true;
             }

@@ -136,7 +136,7 @@ app.post('/changeCart', async (req, res) => {
     if(req.body.operation === "delete") {
         result = await db.removeProductFromUser(req.body.sessionId, Number(req.body.productId), Number(req.body.quantity));
     } else {
-        result = await db.addProductToUser(req.body.sessionId, Number(req.body.productId), Number(req.body.quantity));
+        result = await db.addProductToUser(req.body.sessionId, Number(req.body.productId), Number(req.body.quantity), req.body.size);
     }
     if (result === -1) {
         res.send({
@@ -155,6 +155,7 @@ app.get('/getCart', async (req, res) => {
     for(let i = 0; i < cart.length; i++) {
         let product = await db.getPosition(cart[i].productId);
         product.quantity = cart[i].quantity;
+        product.size = cart[i].size;
         result.push(product);
     }
     res.send(result);
