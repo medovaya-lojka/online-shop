@@ -33,6 +33,19 @@
                 <div class="delete-button" id="productDeleteBut" onclick="deleteFavorite(this)">
                     
                 </div>
+                <div class="size-container" id="sizeContainer">
+                    <div class="size-header-container">
+                        <div class="size-header">
+                            Выберите размер
+                        </div>
+                        <div class="size-close-button" id="sizeCloseButton" onclick="closeSizeContainer(this)">
+                            
+                        </div>
+                    </div>
+                    <div class="size-button" id="sizeButton">
+                        хs
+                    </div>
+                </div>
             </div>
             <div class="product-name" id="productName">
                 Название товара
@@ -40,7 +53,7 @@
             <div class="product-price" id="productPrice">
                 5 000 pуб.
             </div>
-            <div class="shop-button" id="shopButton">
+            <div class="shop-button" id="shopButton" onclick="shopButtonHandler(this)">
                 Добавить в корзину
             </div>
         </div>

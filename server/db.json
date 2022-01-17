@@ -753,13 +753,16 @@
       "name": "test)))",
       "email": "test3@test3.ru",
       "password": "U2FsdGVkX1/Wrq3sjEO6DlnWdlMQWCuksN3Da3Xt4f4=",
-      "lastSessionId": "6r8a9oziy14"
+      "lastSessionId": "9fajckm627s"
     },
     {
       "name": "test4",
       "email": "test4@test4.ru",
       "password": "U2FsdGVkX18q0xm3K2Vw1QPWHKa9toK83T0Vb7yXpHE=",
-      "lastSessionId": "no5jvs3fh6j"
+      "lastSessionId": "no5jvs3fh6j",
+      "favList": [
+        1020409
+      ]
     },
     {
       "name": "Roman",
