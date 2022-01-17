@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="style/profileData.css">
+<script src="script/profileData.js"></script>
+<%- include('header') %>
+<head>
+    <title>
+        Мои данные
+    </title>
+</head>
+
+<body>
+    <div class="main-data-container">
+        <div class="header-text">
+            Личные данные
+        </div>
+        <div>
+            <input placeholder="<%- getCookie("name") %>" id="name">
+        </div>
+        <div>
+            <input placeholder="" id="email">
+        </div>
+        <div>
+            <input placeholder="Пароль" type="password" id="password">
+        </div>
+    </div>
+</body>
