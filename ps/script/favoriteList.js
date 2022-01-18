@@ -20,6 +20,7 @@ const sizeFill = (product, productCard) => {
                 sizeButton.style.display = 'block';
                 if (product.sizeList[index] < 1) {
                     sizeButton.innerHTML = `${size} — Нет в наличии!`;
+                    sizeButton.setAttribute('lack', true);
                 } else {
                     sizeButton.innerHTML = size;
                 }
@@ -86,6 +87,20 @@ const shopButtonHandler = (e) => {
 const closeSizeContainer = (e) => {
     let productCard = e.attributes['data-product-id'].value; 
     document.getElementById(productCard).querySelector('#sizeContainer').style.display = 'none';
+}
+
+const addInCart = (e) => {
+    if (!e.attributes['lack']) {
+        let options = {
+            operation: 'add',
+            sessionId: getCookie('sessionId'),
+            productId: e.parentElement.attributes['data-product-id'].value.split('productCard')[1],
+            quantity: 1,
+            size: e.innerHTML
+        };
+        set('/changeCart', options).then((data) => {
+        }); 
+    }
 }
 
 async function set(url, params) {

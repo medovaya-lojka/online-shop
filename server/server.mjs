@@ -202,3 +202,7 @@ app.get('/cart', (req, res) => {
 app.get('/favorite', (req, res) => {
     res.render('favoriteList');
 })
+
+app.get('/profileData', (req, res) => {
+    res.render('profileData');
+})

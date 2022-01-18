@@ -753,7 +753,17 @@
       "name": "test)))",
       "email": "test3@test3.ru",
       "password": "U2FsdGVkX1/Wrq3sjEO6DlnWdlMQWCuksN3Da3Xt4f4=",
-      "lastSessionId": "9fajckm627s"
+      "lastSessionId": "9fajckm627s",
+      "favList": [
+        1020409
+      ],
+      "cart": [
+        {
+          "productId": 1020409,
+          "quantity": 1,
+          "size": "xs"
+        }
+      ]
     },
     {
       "name": "test4",
