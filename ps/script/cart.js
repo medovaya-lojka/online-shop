@@ -3,7 +3,7 @@ window.addEventListener('load', () => {
 })
 
 const updateCartListData = () => {
-    fetch(`/getCartList?sessionId=${getCookie('sessionId')}`)
+    fetch(`/getCart?sessionId=${getCookie('sessionId')}`)
         .then(response => response.json())
         .then((data) =>  {
             updateCart(data);
@@ -24,22 +24,22 @@ const updateCart = (productList) => {
     }
 }
 
-// const fillCart = (productList) => {
-//     productList.forEach(product => {
-//         const productCard = document.getElementById('productContainerMain').cloneNode(true);
-//         productCard.id = `productCard${product.id}`;
-//         productCard.style.display = 'block';
-//         productCard.querySelector('#productDeleteBut').setAttribute('data-product-id', productCard.id);
-//         productCard.querySelector('#size').innerHTML = `Размер: ${product.size}`;
-//         productCard.querySelector('#sizeCloseButton').setAttribute('data-product-id', productCard.id);
-//         productCard.querySelector('#productName').innerHTML = `${product.name}`;
-//         productCard.querySelector('#productPrice').innerHTML = `${product.price} руб.`;
-//         productCard.querySelector('#productImg').src = product.imageList[0];
-//         productCard.querySelector('#productLink').href = `/productPage?id=${product.id}`
-//         document.getElementById('detailsFavoriteContainer').appendChild(productCard);
-//         sizeFill(product, productCard);
-//     });
-// }
+const fillCart = (productList) => {
+    productList.forEach(product => {
+        const productCard = document.getElementById('productContainerMain').cloneNode(true);
+        productCard.id = `productCard${product.id}`;
+        productCard.style.display = 'flex';
+        productCard.querySelector('#productDeleteButton').setAttribute('data-product-id', productCard.id);
+        productCard.querySelector('#size').innerHTML = `Размер: ${product.size.toUpperCase()}`;
+        productCard.querySelector('#quantity').innerHTML = `Кол-во: ${product.quantity}`;
+        productCard.querySelector('#color').innerHTML = `${product.colorName}`;
+        productCard.querySelector('#productName').innerHTML = `${product.name}`;
+        productCard.querySelector('#price').innerHTML = `${product.price*product.quantity} руб.`;
+        productCard.querySelector('#productImg').src = product.imageList[0];
+        productCard.querySelector('#productLink').href = `/productPage?id=${product.id}`
+        document.getElementById('goodsContainer').appendChild(productCard);
+    });
+}
 
 // const deleteFavorite = (e) => {
 //     let productId = e.attributes['data-product-id'].value;

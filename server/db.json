@@ -596,7 +596,9 @@
       "colorName": "Светло-бежевый/Черный",
       "color": "#dddbcd",
       "adminPass": "asdasd",
-      "id": 1020409
+      "id": 1020409,
+      "quantity": 1,
+      "size": "xs"
     },
     {
       "name": "Жилет из плюша",
@@ -762,6 +764,21 @@
           "productId": 1020409,
           "quantity": 1,
           "size": "xs"
+        },
+        {
+          "productId": 1020409,
+          "quantity": 1,
+          "size": "s"
+        },
+        {
+          "productId": 1020409,
+          "quantity": 1,
+          "size": "m"
+        },
+        {
+          "productId": 1020409,
+          "quantity": 1,
+          "size": "l"
         }
       ]
     },
