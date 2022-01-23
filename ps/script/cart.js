@@ -1,5 +1,9 @@
 window.addEventListener('load', () => {
     updateCartListData();
+    cartData = {
+        operation: 'add',
+        sessionId: getCookie('sessionId')
+    };
 })
 
 const updateCartListData = () => {
@@ -30,6 +34,7 @@ const fillCart = (productList) => {
         productCard.id = `productCard${product.id}`;
         productCard.style.display = 'flex';
         productCard.querySelector('#productDeleteButton').setAttribute('data-product-id', productCard.id);
+        productCard.querySelector('#productDeleteButton').setAttribute('data-quantity', product.quantity);
         productCard.querySelector('#size').innerHTML = `Размер: ${product.size.toUpperCase()}`;
         productCard.querySelector('#quantity').innerHTML = `Кол-во: ${product.quantity}`;
         productCard.querySelector('#color').innerHTML = `${product.colorName}`;
@@ -41,12 +46,26 @@ const fillCart = (productList) => {
     });
 }
 
-// const deleteFavorite = (e) => {
-//     let productId = e.attributes['data-product-id'].value;
-//     document.getElementById(productId).remove();
-//     favoriteData.operation = 'delete';
-//     favoriteData.productId = productId.split('productCard')[1];
-//     set('/changeFav', favoriteData).then((data) => {
-//     });
-//     updateFavoriteListData();
-// }
+const deleteProduct = (e) => {
+    let productId = e.attributes['data-product-id'].value;
+    document.getElementById(productId).remove();
+    cartData.operation = 'delete';
+    cartData.productId = productId.split('productCard')[1];
+    cartData.quantity = e.attributes['data-quantity'].value;
+    set('/changeCart', cartData).then((data) => {
+    });
+    updateCartListData();
+}
+
+async function set(url, params) {
+    const rawResponse = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(params)
+    });
+
+    return await rawResponse.json();
+}

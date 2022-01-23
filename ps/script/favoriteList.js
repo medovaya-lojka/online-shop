@@ -51,6 +51,10 @@ const updateFavorite = (productList) => {
     }
 }
 
+const cleanFavoriteData = () => {
+    //TODO
+}
+
 const fillFavorite = (productList) => {
     productList.forEach(product => {
         const productCard = document.getElementById('productContainer').cloneNode(true);

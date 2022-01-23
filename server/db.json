@@ -598,7 +598,7 @@
       "adminPass": "asdasd",
       "id": 1020409,
       "quantity": 1,
-      "size": "xs"
+      "size": "l"
     },
     {
       "name": "Жилет из плюша",
@@ -756,9 +756,7 @@
       "email": "test3@test3.ru",
       "password": "U2FsdGVkX1/Wrq3sjEO6DlnWdlMQWCuksN3Da3Xt4f4=",
       "lastSessionId": "9fajckm627s",
-      "favList": [
-        1020409
-      ],
+      "favList": [],
       "cart": [
         {
           "productId": 1020409,
